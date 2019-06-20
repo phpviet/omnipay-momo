@@ -16,7 +16,7 @@
 
 ## Thông tin
 
-Thư viện hổ trợ tích cổng thanh toán MoMo dựa trên nền tảng [Omnipay League](https://github.com/thephpleague/omnipay).
+Thư viện hổ trợ tích cổng thanh toán MoMo phát triển trên nền tảng [Omnipay League](https://github.com/thephpleague/omnipay).
 
 ## Cài đặt
 
