@@ -10,8 +10,6 @@ namespace Omnipay\MoMo\Message\Concerns;
 use Omnipay\Common\Exception\InvalidResponseException;
 
 /**
- * @mixin \Omnipay\MoMo\Message\AbstractResponse
- *
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
