@@ -30,7 +30,7 @@ trait ResponseSignatureValidator
     {
         $data = [];
 
-        foreach ($this->getDataSigned($this->data['requestType']) as $param) {
+        foreach ($this->getSignatureParameters($this->data['requestType']) as $param) {
             $data[$param] = $this->data[$param];
         }
 
@@ -49,7 +49,7 @@ trait ResponseSignatureValidator
      * @param  string  $requestType
      * @return array
      */
-    protected function getDataSigned(string $requestType): array
+    protected function getSignatureParameters(string $requestType): array
     {
         switch ($requestType) {
             case 'captureMoMoWallet':
