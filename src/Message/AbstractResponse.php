@@ -17,7 +17,7 @@ use Omnipay\Common\Message\AbstractResponse as BaseAbstractResponse;
 abstract class AbstractResponse extends BaseAbstractResponse
 {
     use Concerns\ResponseParameters;
-    use Concerns\ResponseSignatureValidator;
+    use Concerns\ResponseSignatureValidation;
 
     /**
      * Khởi tạo đối tượng Response.
