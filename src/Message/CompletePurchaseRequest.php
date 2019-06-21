@@ -7,21 +7,39 @@
 
 namespace Omnipay\MoMo\Message;
 
-use Omnipay\Common\Message\AbstractRequest;
-
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class CompletePurchaseRequest extends AbstractRequest
+class CompletePurchaseRequest extends AbstractHttpRequest
 {
-    public function getData()
+    /**
+     * {@inheritdoc}
+     */
+    protected function getHttpRequestData(): array
     {
-        // TODO: Implement getData() method.
+        $data = [];
+        $params = [
+            'partnerCode', 'accessKey', 'requestId', 'amount', 'orderId', 'orderInfo', 'orderType', 'transId',
+            'message', 'localMessage', 'responseTime', 'errorCode', 'extraData', 'signature', 'payType',
+        ];
+        $query = $this->httpRequest->query;
+        $request = $this->httpRequest->request;
+
+        foreach ($params as $param) {
+            $data[$param] = $query->get($param, $request->get($param));
+        }
+
+        return $data;
     }
 
-    public function sendData($data)
+    /**
+     * {@inheritdoc}
+     * @throws \Omnipay\Common\Exception\InvalidResponseException
+     */
+    public function sendData($data): CompletePurchaseResponse
     {
-        // TODO: Implement sendData() method.
+        return new CompletePurchaseResponse($this, $data);
     }
+
 }
