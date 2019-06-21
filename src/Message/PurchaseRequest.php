@@ -15,9 +15,9 @@ use Omnipay\Common\Message\AbstractRequest;
  */
 class PurchaseRequest extends AbstractRequest
 {
-    use Concerns\Parameters;
     use Concerns\RequestEndpoint;
     use Concerns\RequestSignature;
+    use Concerns\RequestParameters;
 
     /**
      * Thiết lập dữ liệu kèm theo đơn hàng.

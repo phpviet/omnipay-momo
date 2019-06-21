@@ -13,7 +13,7 @@ use Omnipay\MoMo\Concerns\Parameters as BaseParameters;
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-trait Parameters
+trait RequestParameters
 {
     use BaseParameters;
 
