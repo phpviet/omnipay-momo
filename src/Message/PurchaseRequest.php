@@ -13,10 +13,6 @@ namespace Omnipay\MoMo\Message;
  */
 class PurchaseRequest extends AbstractRequest
 {
-    use Concerns\RequestEndpoint;
-    use Concerns\RequestSignature;
-    use Concerns\RequestParameters;
-
     /**
      * Thiết lập dữ liệu kèm theo đơn hàng.
      *
