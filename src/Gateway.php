@@ -8,7 +8,10 @@
 namespace Omnipay\MoMo;
 
 use Omnipay\Common\AbstractGateway;
+use Omnipay\MoMo\Message\RefundRequest;
 use Omnipay\MoMo\Message\PurchaseRequest;
+use Omnipay\MoMo\Message\QueryRefundRequest;
+use Omnipay\MoMo\Message\QueryTransactionRequest;
 use Omnipay\MoMo\Message\CompletePurchaseRequest;
 
 /**
@@ -17,7 +20,6 @@ use Omnipay\MoMo\Message\CompletePurchaseRequest;
  */
 class Gateway extends AbstractGateway
 {
-
     use Concerns\Parameters;
 
     /**
@@ -29,10 +31,19 @@ class Gateway extends AbstractGateway
     }
 
     /**
-     * Create purchase request.
+     * Create complete purchase request.
      *
-     * @param array $options
-     * @return \Omnipay\Common\Message\AbstractRequest|PurchaseRequest
+     * @param  array  $options
+     * @return \Omnipay\Common\Message\RequestInterface|CompletePurchaseRequest
+     */
+    public function completePurchase(array $options = []): CompletePurchaseRequest
+    {
+        return $this->createRequest(CompletePurchaseRequest::class, $options);
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return \Omnipay\Common\Message\RequestInterface|PurchaseRequest
      */
     public function purchase(array $options = []): PurchaseRequest
     {
@@ -40,13 +51,31 @@ class Gateway extends AbstractGateway
     }
 
     /**
-     * Create complete purchase request.
+     * Tạo yêu cầu truy vấn thông tin giao dịch đến MoMo.
      *
-     * @param array $options
-     * @return \Omnipay\Common\Message\AbstractRequest|CompletePurchaseRequest
+     * @param  array  $options
+     * @return \Omnipay\Common\Message\RequestInterface|QueryTransactionRequest
      */
-    public function completePurchase(array $options = [])
+    public function queryTransaction(array $options = []): QueryTransactionRequest
     {
-        return $this->createRequest(CompletePurchaseRequest::class, $options);
+        return $this->createRequest(QueryTransactionRequest::class, $options);
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return \Omnipay\Common\Message\RequestInterface|RefundRequest
+     */
+    public function refund(array $options = [])
+    {
+        return $this->createRequest(RefundRequest::class, $options);
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return \Omnipay\Common\Message\RequestInterface|QueryRefundRequest
+     */
+    public function queryRefund(array $options = [])
+    {
+        return $this->createRequest(QueryRefundRequest::class, $options);
     }
 }
