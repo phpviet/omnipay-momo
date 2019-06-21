@@ -36,6 +36,9 @@
             "Omnipay\\MoMo\\Tests\\": "tests"
         }
     },
+    "scripts": {
+        "test": "\"vendor/bin/phpunit\""
+    },
     "config": {
         "sort-packages": true
     },
