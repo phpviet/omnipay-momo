@@ -7,8 +7,6 @@
 
 namespace Omnipay\MoMo\Message;
 
-use Omnipay\Common\Message\AbstractRequest;
-
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
@@ -41,16 +39,17 @@ class PurchaseRequest extends AbstractRequest
 
     /**
      * @inheritDoc
+     * @throws \Omnipay\Common\Exception\InvalidRequestException
      */
-    public function getData()
+    public function getData(): array
     {
+        $this->validate('amount', 'returnUrl', 'notifyUrl');
         $this->setOrderInfo($this->getParameter('orderInfo') ?? '');
         $this->setExtraData($this->getParameter('extraData') ?? '');
-        $this->validate('partnerCode', 'accessKey', 'requestId', 'orderId', 'amount', 'returnUrl', 'notifyUrl');
         $this->setParameter('requestType', 'captureMoMoWallet');
         $this->setParameter('signature', $this->generateSignature());
 
-        return $this->getParameters();
+        return array_merge(parent::getData(), $this->getParameters());
     }
 
     /**

@@ -7,7 +7,6 @@
 
 namespace Omnipay\MoMo\Message;
 
-use Omnipay\Common\Message\AbstractResponse;
 use Omnipay\Common\Message\RedirectResponseInterface;
 
 /**
@@ -35,16 +34,76 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
     /**
      * @inheritDoc
      */
+    public function getRedirectUrl(): string
+    {
+        return $this->data['payUrl'];
+    }
+
+    /**
+     * Trả về qr code image url dành cho thanh toán trực tiếp không cần chuyển sang MoMo.
+     *
+     * @return string
+     */
+    public function getQrCodeUrl(): string
+    {
+        return $this->data['qrCodeUrl'];
+    }
+
+    /**
+     * Trả về link mở MoMo app cho khách hàng thanh toán.
+     *
+     * @return string
+     */
+    public function getDeepLink(): string
+    {
+        return $this->data['deeplink'];
+    }
+
+    /**
+     * Trả về link mở màn hình xác nhận thanh toán của MoMo. Khi web của bạn nằm trong MoMo app.
+     *
+     * @return string
+     */
+    public function getDeepLinkWebInApp(): string
+    {
+        return $this->data['deeplinkWebInApp'];
+    }
+
+    /**
+     * @inheritDoc
+     */
     public function getMessage(): string
     {
         return $this->data['message'];
     }
 
     /**
-     * @inheritDoc
+     * Trả về message tiếng việt.
+     *
+     * @return string
      */
-    public function getRedirectUrl()
+    public function getLocalMessage(): string
     {
-        return $this->data['payUrl'];
+        return $this->data['localMessage'];
+    }
+
+    /**
+     * Trả về giống với request id đã gửi lên MoMo, dùng để đối soát.
+     *
+     * @return string
+     */
+    public function getRequestId(): string
+    {
+        return $this->data['requestId'];
+    }
+
+    /**
+     * Trả về giống với request type đã gửi lên MoMo, dùng để đối soát.
+     *
+     * @return string
+     */
+    public function getRequestType(): string
+    {
+        return $this->data['requestType'];
     }
 }
