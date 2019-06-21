@@ -17,15 +17,17 @@ abstract class AbstractHttpRequest extends AbstractRequest
 {
     /**
      * {@inheritdoc}
+     * @throws \Omnipay\Common\Exception\InvalidRequestException
      */
     public function getData(): array
     {
-        return $this->getParameters();
+        $this->validate(array_keys($parameters = $this->getParameters()));
+
+        return $parameters;
     }
 
     /**
      * {@inheritdoc}
-     * @throws \Omnipay\Common\Exception\InvalidRequestException
      */
     public function initialize(array $parameters = []): self
     {
@@ -33,7 +35,6 @@ abstract class AbstractHttpRequest extends AbstractRequest
 
         foreach ($this->getHttpRequestData() as $key => $value) {
             $this->setParameter($key, $value);
-            $this->validate($key);
         }
 
         return $this;
