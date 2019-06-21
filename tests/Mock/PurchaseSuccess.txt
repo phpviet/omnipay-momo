@@ -1,0 +1,16 @@
+HTTP/1.1 200
+Server: nginx
+Date: Fri, 21 Jun 2019 10:04:49 GMT
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+Set-Cookie: JSESSIONID=87723C3A1129F9B3F53B3B8F1D132E21;path=/gw_payment/;HttpOnly
+Pragma: no-cache
+Access-Control-Allow-Origin: *
+X-Kong-Upstream-Latency: 115
+X-Kong-Proxy-Latency: 1
+Via: kong/0.14.1
+Strict-Transport-Security: max-age=15768000
+
+{"requestId":"0.38857500 1561110614","errorCode":0,"orderId":"0.38857000 1561110614","message":"Success","localMessage":"Thành công","requestType":"captureMoMoWallet","payUrl":"https://test-payment.momo.vn/gw_payment/payment/qr?partnerCode=MOMO0HGO20180417&accessKey=E8HZuQRy2RsjVtZp&requestId=0.38857500 1561110614&amount=500000&orderId=0.38857000 1561110614&signature=5ad173c5f7e69f8e99cb0814cc50ca547f07a318a2ef800061e378485cc90972&requestType=captureMoMoWallet&action=payWithAppToken&amount=500000&requestType=payment&partnerCode=MOMO0HGO20180417&orderId=0.38857000 1561110614&extraData=&fee=0&orderLabel=M%C3%A3+%C4%91%C6%A1n+h%C3%A0ng&packageId=&description=&extras=&language=vi&merchantnamelabel=Nh%C3%A0+cung+c%E1%BA%A5p&gatewayMerchantCode=MOMO0HGO20180417&createdAt=1561111489780&merchantcode=MOMO0HGO20180417&requestId=0.38857000 1561110614&deeplinkCallback=https%3A%2F%2Ftest-payment.momo.vn%2Fgw_payment%2Fm2%3Fid%3DBK5m2e&urlSubmitToken=https%3A%2F%2Ftest-payment.momo.vn%2Fgw_payment%2Fpayment_with_app%3FpartnerCode%3DMOMO0HGO20180417%26accessKey%3DE8HZuQRy2RsjVtZp%26requestId%3D0.38857500+1561110614%26orderId%3D0.38857000+1561110614%26orderInfo%3D%26amount%3D500000%26signature%3D5ad173c5f7e69f8e99cb0814cc50ca547f07a318a2ef800061e378485cc90972%26requestType%3DcaptureMoMoWallet%26payType%3Dapp-in-app&appScheme=&hmac=c852d8ba41fb0b9e383e1d502439f4f1de02a53fabd64e244828ea108ac4fe7b&merchantname=C%C3%B4ng+ty+TNHH+TM+DV+Vua+Cua&callbackUrl=https%3A%2F%2Ftest-payment.momo.vn%2Fgw_payment%2Fm2%3Fid%3DBK5m2e","signature":"56c69f97d092fc5cac3d730b7ef3639567b931c435c62989c0b7983297d4c6d4","qrCodeUrl":"https://test-payment.momo.vn/gw_payment/s/9vzjZ4"}
