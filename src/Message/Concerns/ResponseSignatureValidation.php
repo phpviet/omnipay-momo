@@ -13,7 +13,7 @@ use Omnipay\Common\Exception\InvalidResponseException;
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-trait ResponseSignatureValidator
+trait ResponseSignatureValidation
 {
     /**
      * @var array
