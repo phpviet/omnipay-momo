@@ -16,12 +16,13 @@ use Omnipay\Common\Message\AbstractResponse as BaseAbstractResponse;
  */
 abstract class AbstractResponse extends BaseAbstractResponse
 {
+    use Concerns\ResponseParameters;
     use Concerns\ResponseSignatureValidator;
 
     /**
-     * Create new Response instance.
+     * Khởi tạo đối tượng Response.
      *
-     * @param  RequestInterface  $request
+     * @param  AbstractRequest|RequestInterface  $request
      * @param $data
      * @throws \Omnipay\Common\Exception\InvalidResponseException
      */
@@ -31,5 +32,15 @@ abstract class AbstractResponse extends BaseAbstractResponse
 
         $requestParameters = $request->getParameters();
         $this->validateSignature($requestParameters['secretKey']);
+    }
+
+    /**
+     * Trả về trạng thái do MoMo phản hồi.
+     *
+     * @return bool
+     */
+    public function isSuccessful(): bool
+    {
+        return 0 === $this->getErrorCode();
     }
 }
