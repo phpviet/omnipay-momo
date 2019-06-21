@@ -16,23 +16,15 @@ use Omnipay\Common\Message\RedirectResponseInterface;
 class PurchaseResponse extends AbstractResponse implements RedirectResponseInterface
 {
     /**
-     * @inheritDoc
-     */
-    public function isSuccessful(): bool
-    {
-        return false;
-    }
-
-    /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function isRedirect(): bool
     {
-        return 0 === (int) $this->data['errorCode'];
+        return $this->isSuccessful();
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getRedirectUrl(): string
     {
@@ -67,43 +59,5 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
     public function getDeepLinkWebInApp(): string
     {
         return $this->data['deeplinkWebInApp'];
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getMessage(): string
-    {
-        return $this->data['message'];
-    }
-
-    /**
-     * Trả về message tiếng việt.
-     *
-     * @return string
-     */
-    public function getLocalMessage(): string
-    {
-        return $this->data['localMessage'];
-    }
-
-    /**
-     * Trả về giống với request id đã gửi lên MoMo, dùng để đối soát.
-     *
-     * @return string
-     */
-    public function getRequestId(): string
-    {
-        return $this->data['requestId'];
-    }
-
-    /**
-     * Trả về giống với request type đã gửi lên MoMo, dùng để đối soát.
-     *
-     * @return string
-     */
-    public function getRequestType(): string
-    {
-        return $this->data['requestType'];
     }
 }

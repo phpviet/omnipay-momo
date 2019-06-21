@@ -34,7 +34,7 @@ class PurchaseRequest extends AbstractRequest
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      * @throws \Omnipay\Common\Exception\InvalidRequestException
      */
     public function getData(): array
@@ -43,21 +43,15 @@ class PurchaseRequest extends AbstractRequest
         $this->setOrderInfo($this->getParameter('orderInfo') ?? '');
         $this->setExtraData($this->getParameter('extraData') ?? '');
         $this->setParameter('requestType', 'captureMoMoWallet');
-        $this->setParameter('signature', $this->generateSignature());
 
-        return array_merge(parent::getData(), $this->getParameters());
+        return parent::getData();
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
-    public function sendData($data)
+    protected function responseClass(): string
     {
-        $response = $this->httpClient->request('POST', $this->getEndpoint(), [
-            'Content-Type' => 'application/json; charset=UTF-8',
-        ], json_encode($data));
-        $contents = $response->getBody()->getContents();
-
-        return $this->response = new PurchaseResponse($this, json_decode($contents, true));
+        return PurchaseResponse::class;
     }
 }
