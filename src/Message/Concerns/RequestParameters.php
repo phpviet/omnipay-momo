@@ -20,7 +20,7 @@ trait RequestParameters
     /**
      * Thiết lập request id của đơn hàng.
      *
-     * @param string $id
+     * @param  string  $id
      */
     public function setRequestId(string $id): void
     {
@@ -30,7 +30,7 @@ trait RequestParameters
     /**
      * Thiết lập id đơn hàng.
      *
-     * @param string $id
+     * @param  string  $id
      */
     public function setOrderId(string $id): void
     {

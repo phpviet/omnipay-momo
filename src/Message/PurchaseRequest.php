@@ -16,7 +16,7 @@ class PurchaseRequest extends AbstractRequest
     /**
      * Thiết lập dữ liệu kèm theo đơn hàng.
      *
-     * @param string $data
+     * @param  string  $data
      */
     public function setExtraData(string $data): void
     {
@@ -26,7 +26,7 @@ class PurchaseRequest extends AbstractRequest
     /**
      * Thiết lập thông tin đơn hàng.
      *
-     * @param string $info
+     * @param  string  $info
      */
     public function setOrderInfo(string $info): void
     {

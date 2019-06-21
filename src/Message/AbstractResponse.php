@@ -21,7 +21,7 @@ abstract class AbstractResponse extends BaseAbstractResponse
     /**
      * Create new Response instance.
      *
-     * @param RequestInterface $request
+     * @param  RequestInterface  $request
      * @param $data
      * @throws \Omnipay\Common\Exception\InvalidResponseException
      */

@@ -38,7 +38,7 @@ trait RequestSignature
     /**
      * Trả về danh sách param dùng để tạo chữ ký số theo `$requestType`.
      *
-     * @param string $requestType
+     * @param  string  $requestType
      * @return array
      */
     protected function getSignatureParameters(string $requestType): array
@@ -46,25 +46,14 @@ trait RequestSignature
         switch ($requestType) {
             case 'captureMoMoWallet':
                 return [
-                    'partnerCode',
-                    'accessKey',
-                    'requestId',
-                    'amount',
-                    'orderId',
-                    'orderInfo',
-                    'returnUrl',
-                    'notifyUrl',
+                    'partnerCode', 'accessKey', 'requestId', 'amount', 'orderId', 'orderInfo', 'returnUrl', 'notifyUrl',
                     'extraData',
                 ];
             case 'transactionStatus':
             case 'refundMoMoWallet':
             case 'refundStatus':
                 return [
-                    'partnerCode',
-                    'accessKey',
-                    'requestId',
-                    'orderId',
-                    'requestType',
+                    'partnerCode', 'accessKey', 'requestId', 'orderId', 'requestType',
                 ];
             default:
                 throw new InvalidArgumentException(sprintf('Request type: (%s) is not valid!', $requestType));

@@ -23,7 +23,7 @@ trait ResponseSignatureValidator
     /**
      * Kiểm tra tính hợp lệ của dữ liệu do MoMo phản hồi.
      *
-     * @param string $secretKey
+     * @param  string  $secretKey
      * @throws InvalidResponseException
      */
     protected function validateSignature(string $secretKey): void
@@ -46,7 +46,7 @@ trait ResponseSignatureValidator
     /**
      * Trả về danh sách các param data đã dùng để tạo chữ ký dữ liệu theo requestType truyền vào.
      *
-     * @param string $requestType
+     * @param  string  $requestType
      * @return array
      */
     protected function getDataSigned(string $requestType): array
@@ -54,53 +54,22 @@ trait ResponseSignatureValidator
         switch ($requestType) {
             case 'captureMoMoWallet':
                 return [
-                    'requestId',
-                    'orderId',
-                    'message',
-                    'localMessage',
-                    'payUrl',
-                    'errorCode',
-                    'requestType',
+                    'requestId', 'orderId', 'message', 'localMessage', 'payUrl', 'errorCode', 'requestType',
                 ];
             case 'transactionStatus':
                 return [
-                    'partnerCode',
-                    'accessKey',
-                    'requestId',
-                    'orderId',
-                    'errorCode',
-                    'transId',
-                    'amount',
-                    'message',
-                    'localMessage',
-                    'requestType',
-                    'payType',
-                    'extraData',
+                    'partnerCode', 'accessKey', 'requestId', 'orderId', 'errorCode', 'transId', 'amount', 'message',
+                    'localMessage', 'requestType', 'payType', 'extraData',
                 ];
             case 'refundMoMoWallet':
                 return [
-                    'partnerCode',
-                    'accessKey',
-                    'requestId',
-                    'orderId',
-                    'errorCode',
-                    'transId',
-                    'message',
-                    'localMessage',
-                    'requestType',
+                    'partnerCode', 'accessKey', 'requestId', 'orderId', 'errorCode', 'transId', 'message',
+                    'localMessage', 'requestType',
                 ];
             case 'refundStatus':
                 return [
-                    'partnerCode',
-                    'accessKey',
-                    'requestId',
-                    'orderId',
-                    'errorCode',
-                    'transId',
-                    'amount',
-                    'message',
-                    'localMessage',
-                    'requestType',
+                    'partnerCode', 'accessKey', 'requestId', 'orderId', 'errorCode', 'transId', 'amount', 'message',
+                    'localMessage', 'requestType',
                 ];
             default:
                 return [];
