@@ -7,9 +7,9 @@
 
 namespace Omnipay\MoMo\Tests;
 
-use GuzzleHttp\Client;
 use Omnipay\Omnipay;
 use Omnipay\Tests\GatewayTestCase;
+use Symfony\Component\HttpFoundation\Request as HttpRequest;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
@@ -19,11 +19,14 @@ class GatewayTest extends GatewayTestCase
 {
     protected function setUp()
     {
-        $this->gateway = Omnipay::create('MoMo', $this->getHttpClient(), $this->getHttpRequest());
+        $this->gateway = Omnipay::create('MoMo', $this->getHttpClient(), $request = $this->getHttpRequest());
         $this->gateway->setAccessKey('MOMO0HGO20180417');
         $this->gateway->setPartnerCode('E8HZuQRy2RsjVtZp');
         $this->gateway->setSecretKey('fj00YKnJhmYqahaFWUgkg75saNTzMrbO');
         $this->gateway->setTestMode(true);
+        $request->query->replace([
+
+        ]);
 
         parent::setUp();
     }
@@ -42,6 +45,21 @@ class GatewayTest extends GatewayTestCase
         $this->assertTrue($response->isSuccessful());
         $this->assertTrue($response->isRedirect());
         $this->assertContains('momo.vn', $response->getRedirectUrl());
+    }
+
+    public function testPurchaseFailure()
+    {
+        $this->setMockHttpResponse('PurchaseFailure.txt');
+        $response = $this->gateway->purchase([
+            'amount' => 0,
+            'returnUrl' => 'http://localhost',
+            'notifyUrl' => 'http://localhost',
+            'orderId' => microtime(true),
+            'requestId' => microtime(true),
+        ])->send();
+
+        $this->assertFalse($response->isSuccessful());
+        $this->assertFalse($response->isRedirect());
     }
 
     /**

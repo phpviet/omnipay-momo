@@ -1,0 +1,16 @@
+HTTP/1.1 200
+Server: nginx
+Date: Sat, 22 Jun 2019 03:59:21 GMT
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+Set-Cookie: JSESSIONID=192D751F835FE23E7D74BEE4700B61A8;path=/gw_payment/;HttpOnly
+Pragma: no-cache
+Access-Control-Allow-Origin: *
+X-Kong-Upstream-Latency: 21
+X-Kong-Proxy-Latency: 1
+Via: kong/0.14.1
+Strict-Transport-Security: max-age=15768000
+
+{"errorCode":4,"message":"Amount invalid should be between 1,000đ and 20,000,000đ","localMessage":"Số tiền không hợp lệ, giới hạn từ 1.000VND đến 20.000.000VND"}
