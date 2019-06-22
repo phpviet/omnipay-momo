@@ -20,27 +20,20 @@ abstract class AbstractResponse extends BaseAbstractResponse
     use Concerns\ResponseSignatureValidation;
 
     /**
-     * Khởi tạo đối tượng Response.
-     *
-     * @param  AbstractRequest|RequestInterface  $request
-     * @param $data
-     * @throws \Omnipay\Common\Exception\InvalidResponseException
-     */
-    public function __construct(RequestInterface $request, $data)
-    {
-        parent::__construct($request, $data);
-
-        $requestParameters = $request->getParameters();
-        $this->validateSignature($requestParameters['secretKey']);
-    }
-
-    /**
      * Trả về trạng thái do MoMo phản hồi.
      *
      * @return bool
+     * @throws \Omnipay\Common\Exception\InvalidResponseException
      */
     public function isSuccessful(): bool
     {
-        return 0 === $this->getErrorCode();
+        if (0 === $this->getErrorCode()) {
+            $requestParameters = $this->request->getParameters();
+            $this->validateSignature($requestParameters['secretKey']);
+
+            return true;
+        }
+
+        return false;
     }
 }
