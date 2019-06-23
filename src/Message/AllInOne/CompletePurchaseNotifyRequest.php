@@ -29,6 +29,6 @@ class CompletePurchaseNotifyRequest extends AbstractHttpRequest
      */
     public function sendData($data): CompletePurchaseNotifyResponse
     {
-        return new CompletePurchaseNotifyResponse($this, $data);
+        return $this->response = new CompletePurchaseNotifyResponse($this, $data);
     }
 }
