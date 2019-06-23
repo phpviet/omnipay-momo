@@ -15,6 +15,8 @@ use Symfony\Component\HttpFoundation\ParameterBag;
  */
 trait IncomingRequestParameters
 {
+    use RequestParameters;
+
     /**
      * {@inheritdoc}
      */
