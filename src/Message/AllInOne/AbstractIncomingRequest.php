@@ -7,34 +7,13 @@
 
 namespace Omnipay\MoMo\Message\AllInOne;
 
-use Omnipay\Common\Message\AbstractRequest;
+use Omnipay\MoMo\Message\AbstractIncomingRequest as BaseAbstractIncomingRequest;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-abstract class AbstractIncomingRequest extends AbstractRequest
+abstract class AbstractIncomingRequest extends BaseAbstractIncomingRequest
 {
-    use Concerns\IncomingRequestParameters;
-
-    /**
-     * {@inheritdoc}
-     * @throws \Omnipay\Common\Exception\InvalidRequestException
-     */
-    public function getData(): array
-    {
-        $this->validate(array_keys($parameters = $this->getParameters()));
-
-        return $parameters;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function initialize(array $parameters = []): self
-    {
-        $this->parameters->replace($this->getIncomingParameters());
-
-        return $this;
-    }
+    use Concerns\RequestParameters;
 }

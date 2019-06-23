@@ -5,7 +5,7 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message\AllInOne\Concerns;
+namespace Omnipay\MoMo\Message\Concerns;
 
 use Symfony\Component\HttpFoundation\ParameterBag;
 
@@ -15,8 +15,6 @@ use Symfony\Component\HttpFoundation\ParameterBag;
  */
 trait IncomingRequestParameters
 {
-    use RequestParameters;
-
     /**
      * {@inheritdoc}
      */
