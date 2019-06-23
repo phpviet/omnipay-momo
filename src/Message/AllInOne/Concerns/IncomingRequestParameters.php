@@ -13,19 +13,19 @@ use Symfony\Component\HttpFoundation\ParameterBag;
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-trait HttpRequestData
+trait IncomingRequestParameters
 {
     /**
      * {@inheritdoc}
      */
-    protected function getHttpRequestData(): array
+    protected function getIncomingParameters(): array
     {
         $data = [];
         $params = [
             'partnerCode', 'accessKey', 'requestId', 'amount', 'orderId', 'orderInfo', 'orderType', 'transId',
             'message', 'localMessage', 'responseTime', 'errorCode', 'extraData', 'signature', 'payType',
         ];
-        $bag = $this->getHttpRequestParameterBag();
+        $bag = $this->getIncomingParameterBag();
 
         foreach ($params as $param) {
             $data[$param] = $bag->get($param);
@@ -39,5 +39,5 @@ trait HttpRequestData
      *
      * @return \Symfony\Component\HttpFoundation\ParameterBag
      */
-    abstract protected function getHttpRequestParameterBag(): ParameterBag;
+    abstract protected function getIncomingParameterBag(): ParameterBag;
 }

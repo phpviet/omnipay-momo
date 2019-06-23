@@ -11,7 +11,6 @@ namespace Omnipay\MoMo\Message\AllInOne;
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class CompletePurchaseResponse extends AbstractHttpResponse
+class CompletePurchaseResponse extends IncomingResponse
 {
-
 }

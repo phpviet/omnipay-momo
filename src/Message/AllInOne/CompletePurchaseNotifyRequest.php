@@ -13,12 +13,12 @@ use Symfony\Component\HttpFoundation\ParameterBag;
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class CompletePurchaseNotifyRequest extends AbstractHttpRequest
+class CompletePurchaseNotifyRequest extends AbstractIncomingRequest
 {
     /**
      * {@inheritdoc}
      */
-    protected function getHttpRequestParameterBag(): ParameterBag
+    protected function getIncomingParameterBag(): ParameterBag
     {
         return $this->httpRequest->request;
     }

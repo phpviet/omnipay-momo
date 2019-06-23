@@ -13,9 +13,9 @@ use Omnipay\Common\Message\AbstractRequest;
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-abstract class AbstractHttpRequest extends AbstractRequest
+abstract class AbstractIncomingRequest extends AbstractRequest
 {
-    use Concerns\HttpRequestData;
+    use Concerns\IncomingRequestParameters;
 
     /**
      * {@inheritdoc}
@@ -33,11 +33,7 @@ abstract class AbstractHttpRequest extends AbstractRequest
      */
     public function initialize(array $parameters = []): self
     {
-        parent::initialize($parameters);
-
-        foreach ($this->getHttpRequestData() as $key => $value) {
-            $this->setParameter($key, $value);
-        }
+        $this->parameters->replace($this->getIncomingParameters());
 
         return $this;
     }
