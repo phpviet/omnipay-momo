@@ -5,20 +5,21 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message;
+namespace Omnipay\MoMo\Message\AllInOne;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class QueryTransactionRequest extends AbstractRequest
+class QueryRefundRequest extends AbstractRequest
 {
     /**
      * {@inheritdoc}
+     * @throws \Omnipay\Common\Exception\InvalidRequestException
      */
     public function getData(): array
     {
-        $this->setParameter('requestType', 'transactionStatus');
+        $this->setParameter('requestType', 'refundStatus');
 
         return parent::getData();
     }
@@ -28,6 +29,6 @@ class QueryTransactionRequest extends AbstractRequest
      */
     protected function responseClass(): string
     {
-        return QueryTransactionResponse::class;
+        return QueryRefundResponse::class;
     }
 }

@@ -7,13 +7,12 @@
 
 namespace Omnipay\MoMo\Message;
 
-use Omnipay\Common\Message\AbstractRequest as BaseAbstractRequest;
+use Omnipay\Common\Message\AbstractRequest;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-abstract class AbstractRequest extends BaseAbstractRequest
+class PosRequest extends AbstractRequest
 {
-    use Concerns\RequestEndpoint;
 }

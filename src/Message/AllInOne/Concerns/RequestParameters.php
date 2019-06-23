@@ -5,9 +5,9 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message\Concerns;
+namespace Omnipay\MoMo\Message\AllInOne\Concerns;
 
-use Omnipay\MoMo\Concerns\Parameters as BaseParameters;
+use Omnipay\MoMo\Concerns\AllInOneParameters;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
@@ -15,7 +15,7 @@ use Omnipay\MoMo\Concerns\Parameters as BaseParameters;
  */
 trait RequestParameters
 {
-    use BaseParameters;
+    use AllInOneParameters;
 
     /**
      * Thiết lập request id của đơn hàng.

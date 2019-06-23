@@ -5,13 +5,15 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message;
+namespace Omnipay\MoMo\Message\AllInOne\Concerns;
+
+use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class CompletePurchaseRequest extends AbstractHttpRequest
+trait HttpRequestData
 {
     /**
      * {@inheritdoc}
@@ -23,23 +25,19 @@ class CompletePurchaseRequest extends AbstractHttpRequest
             'partnerCode', 'accessKey', 'requestId', 'amount', 'orderId', 'orderInfo', 'orderType', 'transId',
             'message', 'localMessage', 'responseTime', 'errorCode', 'extraData', 'signature', 'payType',
         ];
-        $query = $this->httpRequest->query;
-        $request = $this->httpRequest->request;
+        $bag = $this->getHttpRequestParameterBag();
 
         foreach ($params as $param) {
-            $data[$param] = $query->get($param, $request->get($param));
+            $data[$param] = $bag->get($param);
         }
 
         return $data;
     }
 
     /**
-     * {@inheritdoc}
-     * @throws \Omnipay\Common\Exception\InvalidResponseException
+     * Trả về request parameter bag.
+     *
+     * @return \Symfony\Component\HttpFoundation\ParameterBag
      */
-    public function sendData($data): CompletePurchaseResponse
-    {
-        return new CompletePurchaseResponse($this, $data);
-    }
-
+    abstract protected function getHttpRequestParameterBag(): ParameterBag;
 }

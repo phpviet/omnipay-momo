@@ -5,21 +5,32 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message;
+namespace Omnipay\MoMo\Message\AllInOne;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class QueryRefundRequest extends AbstractRequest
+class RefundRequest extends AbstractRequest
 {
+    /**
+     * Thiết lập mã giao dịch của MoMo.
+     *
+     * @param  string  $id
+     */
+    public function setTransId(string $id): void
+    {
+        $this->setParameter('transId', $id);
+    }
+
     /**
      * {@inheritdoc}
      * @throws \Omnipay\Common\Exception\InvalidRequestException
      */
     public function getData(): array
     {
-        $this->setParameter('requestType', 'refundStatus');
+        $this->validate('transId');
+        $this->setParameter('requestType', 'refundMoMoWallet');
 
         return parent::getData();
     }
@@ -29,6 +40,6 @@ class QueryRefundRequest extends AbstractRequest
      */
     protected function responseClass(): string
     {
-        return QueryRefundResponse::class;
+        return RefundResponse::class;
     }
 }

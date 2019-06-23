@@ -5,7 +5,7 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message;
+namespace Omnipay\MoMo\Message\AllInOne;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>

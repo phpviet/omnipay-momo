@@ -5,13 +5,12 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message;
+namespace Omnipay\MoMo\Message\AllInOne;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class RefundResponse extends AbstractResponse
+class CompletePurchaseNotifyResponse extends AbstractHttpResponse
 {
-    use Concerns\PurchasedResponseParameters;
 }

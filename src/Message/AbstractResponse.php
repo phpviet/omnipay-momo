@@ -7,7 +7,6 @@
 
 namespace Omnipay\MoMo\Message;
 
-use Omnipay\Common\Message\RequestInterface;
 use Omnipay\Common\Message\AbstractResponse as BaseAbstractResponse;
 
 /**
@@ -16,24 +15,4 @@ use Omnipay\Common\Message\AbstractResponse as BaseAbstractResponse;
  */
 abstract class AbstractResponse extends BaseAbstractResponse
 {
-    use Concerns\ResponseParameters;
-    use Concerns\ResponseSignatureValidation;
-
-    /**
-     * Trả về trạng thái do MoMo phản hồi.
-     *
-     * @return bool
-     * @throws \Omnipay\Common\Exception\InvalidResponseException
-     */
-    public function isSuccessful(): bool
-    {
-        if (0 === $this->getErrorCode()) {
-            $requestParameters = $this->request->getParameters();
-            $this->validateSignature($requestParameters['secretKey']);
-
-            return true;
-        }
-
-        return false;
-    }
 }

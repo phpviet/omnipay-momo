@@ -16,7 +16,7 @@ trait Parameters
     /**
      * Thiết lập secret key do MoMo cấp.
      *
-     * @param string $key
+     * @param  string  $key
      */
     public function setSecretKey(string $key): void
     {
@@ -24,19 +24,9 @@ trait Parameters
     }
 
     /**
-     * Thiết lập access key do MoMo cấp.
-     *
-     * @param string $key
-     */
-    public function setAccessKey(string $key): void
-    {
-        $this->setParameter('accessKey', $key);
-    }
-
-    /**
      * Thiết lập partner code do MoMo cấp.
      *
-     * @param string $code
+     * @param  string  $code
      */
     public function setPartnerCode(string $code): void
     {

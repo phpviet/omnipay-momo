@@ -5,9 +5,10 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message\Concerns;
+namespace Omnipay\MoMo\Message\AllInOne\Concerns;
 
 use InvalidArgumentException;
+use Omnipay\MoMo\Support\Signature;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
@@ -17,22 +18,21 @@ use InvalidArgumentException;
 trait RequestSignature
 {
     /**
-     * Trả về chữ ký điện tử gửi đến MoMo.
+     * Trả về chữ ký điện tử gửi đến MoMo dựa theo `$requestType` truyền vào.
      *
+     * @param  string  $requestType
      * @return string
      */
-    protected function generateSignature(): string
+    protected function generateSignature(string $requestType): string
     {
         $data = [];
-        $requestType = $this->getParameter('requestType');
+        $signature = new Signature($this->getParameter('secretKey'));
 
         foreach ($this->getSignatureParameters($requestType) as $parameter) {
             $data[$parameter] = $this->getParameter($parameter);
         }
 
-        $dataSign = urldecode(http_build_query($data));
-
-        return hash_hmac('sha256', $dataSign, $this->getParameter('secretKey'));
+        return $signature->generate($data);
     }
 
     /**

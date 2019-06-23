@@ -15,11 +15,11 @@ use Symfony\Component\HttpFoundation\Request as HttpRequest;
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class GatewayTest extends GatewayTestCase
+class AllInOneGatewayTest extends GatewayTestCase
 {
     protected function setUp()
     {
-        $this->gateway = Omnipay::create('MoMo', $this->getHttpClient(), $request = $this->getHttpRequest());
+        $this->gateway = Omnipay::create('MoMo_AllInOne', $this->getHttpClient(), $request = $this->getHttpRequest());
         $this->gateway->setAccessKey('MOMO0HGO20180417');
         $this->gateway->setPartnerCode('E8HZuQRy2RsjVtZp');
         $this->gateway->setSecretKey('fj00YKnJhmYqahaFWUgkg75saNTzMrbO');

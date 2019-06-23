@@ -5,7 +5,7 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message\Concerns;
+namespace Omnipay\MoMo\Message\AllInOne\Concerns;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
@@ -56,16 +56,6 @@ trait ResponseParameters
     public function getRequestId(): string
     {
         return $this->data['requestId'];
-    }
-
-    /**
-     * Trả về request type.
-     *
-     * @return string
-     */
-    public function getRequestType(): string
-    {
-        return $this->data['requestType'];
     }
 
     /**

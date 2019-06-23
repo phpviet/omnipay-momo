@@ -5,7 +5,7 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message;
+namespace Omnipay\MoMo\Message\AllInOne;
 
 use Omnipay\Common\Message\AbstractRequest;
 
@@ -15,6 +15,8 @@ use Omnipay\Common\Message\AbstractRequest;
  */
 abstract class AbstractHttpRequest extends AbstractRequest
 {
+    use Concerns\HttpRequestData;
+
     /**
      * {@inheritdoc}
      * @throws \Omnipay\Common\Exception\InvalidRequestException
@@ -39,12 +41,4 @@ abstract class AbstractHttpRequest extends AbstractRequest
 
         return $this;
     }
-
-    /**
-     * Trả về mảng dữ liệu từ HTTP dùng để khởi tạo parameters.
-     * Nếu một trong các phần tử không tồn tại thì hãy thiết lập nó là NULL hổ trợ cho việc báo lỗi.
-     *
-     * @return array
-     */
-    abstract protected function getHttpRequestData(): array;
 }

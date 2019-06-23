@@ -5,8 +5,9 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message\Concerns;
+namespace Omnipay\MoMo\Message\AllInOne\Concerns;
 
+use Omnipay\MoMo\Support\Signature;
 use Omnipay\Common\Exception\InvalidResponseException;
 
 /**
@@ -29,15 +30,13 @@ trait ResponseSignatureValidation
     protected function validateSignature(string $secretKey): void
     {
         $data = [];
+        $signature = new Signature($secretKey);
 
         foreach ($this->getSignatureParameters($this->data['requestType']) as $param) {
             $data[$param] = $this->data[$param];
         }
 
-        $dataSign = urldecode(http_build_query($data));
-        $signature = hash_hmac('sha256', $dataSign, $secretKey);
-
-        if (0 !== strcasecmp($signature, $this->data['signature'])) {
+        if (! $signature->validate($data, $this->data['signature'])) {
 
             throw new InvalidResponseException(sprintf('Data signature response from MoMo is invalid!'));
         }

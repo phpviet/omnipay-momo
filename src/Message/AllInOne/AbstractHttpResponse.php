@@ -5,15 +5,26 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message;
+namespace Omnipay\MoMo\Message\AllInOne;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class CompletePurchaseResponse extends AbstractResponse
+class AbstractHttpResponse extends AbstractResponse
 {
     use Concerns\PurchasedResponseParameters;
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getSignatureParameters(string $requestType): array
+    {
+        return [
+            'partnerCode', 'accessKey', 'requestId', 'amount', 'orderId', 'orderInfo', 'orderType',
+            'transId', 'message', 'localMessage', 'responseTime', 'errorCode', 'payType', 'extraData',
+        ];
+    }
 
     /**
      * Trả về thời gian phản hồi phiên giao dịch.
@@ -43,5 +54,25 @@ class CompletePurchaseResponse extends AbstractResponse
     public function getExtraData(): string
     {
         return $this->data['extraData'];
+    }
+
+    /**
+     * Trả về phương thức thanh toán của khách.
+     *
+     * @return string
+     */
+    public function getPayType(): string
+    {
+        return $this->data['payType'];
+    }
+
+    /**
+     * Trả về order type từ MoMo.
+     *
+     * @return string
+     */
+    public function getOrderType(): string
+    {
+        return $this->data['orderType'];
     }
 }

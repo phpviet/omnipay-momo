@@ -20,7 +20,7 @@ trait RequestEndpoint
      */
     protected function getEndpoint(): string
     {
-        return $this->getTestMode() ? 'https://test-payment.momo.vn/gw_payment/transactionProcessor' : 'https://payment.momo.vn/gw_payment/transactionProcessor';
+        return $this->getTestMode() ? 'https://test-payment.momo.vn' : 'https://payment.momo.vn';
     }
 
     /**

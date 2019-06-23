@@ -8,19 +8,20 @@
 namespace Omnipay\MoMo;
 
 use Omnipay\Common\AbstractGateway;
-use Omnipay\MoMo\Message\RefundRequest;
-use Omnipay\MoMo\Message\PurchaseRequest;
-use Omnipay\MoMo\Message\QueryRefundRequest;
-use Omnipay\MoMo\Message\QueryTransactionRequest;
-use Omnipay\MoMo\Message\CompletePurchaseRequest;
+use Omnipay\MoMo\Message\AllInOne\RefundRequest;
+use Omnipay\MoMo\Message\AllInOne\PurchaseRequest;
+use Omnipay\MoMo\Message\AllInOne\QueryRefundRequest;
+use Omnipay\MoMo\Message\AllInOne\QueryTransactionRequest;
+use Omnipay\MoMo\Message\AllInOne\CompletePurchaseRequest;
+use Omnipay\MoMo\Message\AllInOne\CompletePurchaseNotifyRequest;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class Gateway extends AbstractGateway
+class AllInOneGateway extends AbstractGateway
 {
-    use Concerns\Parameters;
+    use Concerns\AllInOneParameters;
 
     /**
      * {@inheritdoc}
@@ -39,6 +40,17 @@ class Gateway extends AbstractGateway
     public function completePurchase(array $options = []): CompletePurchaseRequest
     {
         return $this->createRequest(CompletePurchaseRequest::class, $options);
+    }
+
+    /**
+     * Create complete purchase notify request.
+     *
+     * @param  array  $options
+     * @return \Omnipay\Common\Message\RequestInterface|CompletePurchaseNotifyRequest
+     */
+    public function completePurchaseNotify(array $options = []): CompletePurchaseNotifyRequest
+    {
+        return $this->createRequest(CompletePurchaseNotifyRequest::class, $options);
     }
 
     /**
