@@ -23,6 +23,12 @@ abstract class AbstractResponse extends BaseAbstractResponse
      */
     public function __get($name)
     {
-        return $this->data[$name] ?? null;
+        if (isset($this->data[$name])) {
+            return $this->data[$name];
+        } else {
+            trigger_error(sprintf('Undefined property: %s::%s', __CLASS__, '$'.$name), E_USER_NOTICE);
+
+            return null;
+        }
     }
 }

@@ -7,6 +7,7 @@
 
 namespace Omnipay\MoMo\Message\AllInOne\Concerns;
 
+use InvalidArgumentException;
 use Omnipay\MoMo\Support\Signature;
 use Omnipay\Common\Exception\InvalidResponseException;
 
@@ -20,6 +21,7 @@ trait ResponseSignatureValidation
      * Kiểm tra tính hợp lệ của dữ liệu do MoMo phản hồi.
      *
      * @throws InvalidResponseException
+     * @throws InvalidArgumentException
      */
     protected function validateSignature(): void
     {
@@ -41,10 +43,11 @@ trait ResponseSignatureValidation
      * Trả về danh sách các param data đã dùng để tạo chữ ký dữ liệu theo requestType truyền vào.
      *
      * @return array
+     * @throws InvalidArgumentException
      */
     protected function getSignatureParameters(): array
     {
-        switch ($this->data['requestType']) {
+        switch ($requestType = $this->data['requestType']) {
             case 'captureMoMoWallet':
                 return [
                     'requestId', 'orderId', 'message', 'localMessage', 'payUrl', 'errorCode', 'requestType',
@@ -65,7 +68,7 @@ trait ResponseSignatureValidation
                     'localMessage', 'requestType',
                 ];
             default:
-                return [];
+                throw new InvalidArgumentException(sprintf('Request type: `%s` is not valid!', $requestType));
         }
     }
 }

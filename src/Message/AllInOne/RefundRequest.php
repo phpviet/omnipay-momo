@@ -31,7 +31,7 @@ class RefundRequest extends AbstractRequest
      */
     public function getData(): array
     {
-        $this->validate('transId');
+        $this->validate('transId', 'amount');
         $this->setParameter('requestType', 'refundMoMoWallet');
 
         return parent::getData();

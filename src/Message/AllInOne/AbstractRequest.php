@@ -32,7 +32,7 @@ abstract class AbstractRequest extends BaseAbstractRequest
     public function getData(): array
     {
         $parameters = $this->getParameters();
-        unset($parameters['secretKey']);
+        unset($parameters['secretKey'], $parameters['testMode']);
         $this->validate('partnerCode', 'accessKey', 'requestId', 'orderId', 'secretKey', 'requestType');
         $parameters['signature'] = $this->generateSignature();
 
@@ -51,6 +51,6 @@ abstract class AbstractRequest extends BaseAbstractRequest
         $responseClass = $this->responseClass;
         $responseData = json_decode($response->getBody()->getContents(), true);
 
-        return $this->response = new $responseClass($this, $responseData);
+        return $this->response = new $responseClass($this, $responseData ?? []);
     }
 }

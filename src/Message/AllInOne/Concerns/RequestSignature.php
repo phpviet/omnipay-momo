@@ -40,7 +40,7 @@ trait RequestSignature
      */
     protected function getSignatureParameters(): array
     {
-        switch ($this->getParameter('requestType')) {
+        switch ($requestType = $this->getParameter('requestType')) {
             case 'captureMoMoWallet':
                 return [
                     'partnerCode', 'accessKey', 'requestId', 'amount', 'orderId', 'orderInfo', 'returnUrl', 'notifyUrl',
@@ -53,7 +53,7 @@ trait RequestSignature
                     'partnerCode', 'accessKey', 'requestId', 'orderId', 'requestType',
                 ];
             default:
-                throw new InvalidArgumentException(sprintf('Request type: (%s) is not valid!', $requestType));
+                throw new InvalidArgumentException(sprintf('Request type: `%s` is not valid!', $requestType));
         }
     }
 }

@@ -1,0 +1,16 @@
+HTTP/1.1 200
+Server: nginx
+Date: Mon, 24 Jun 2019 08:22:43 GMT
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+Set-Cookie: JSESSIONID=A97A14DED67AEDA7473EC34921ED48A8;path=/gw_payment/;HttpOnly
+Pragma: no-cache
+Access-Control-Allow-Origin: *
+X-Kong-Upstream-Latency: 24
+X-Kong-Proxy-Latency: 0
+Via: kong/0.14.1
+Strict-Transport-Security: max-age=15768000
+
+{"errorCode":99,"message":"Error undefined","localMessage":"Lỗi không xác định"}

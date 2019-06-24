@@ -7,7 +7,7 @@
 
 namespace Omnipay\MoMo\Message\AllInOne;
 
-use Omnipay\Common\Message\AbstractResponse;
+use Omnipay\MoMo\Message\AbstractResponse;
 use Omnipay\Common\Message\RequestInterface;
 
 /**

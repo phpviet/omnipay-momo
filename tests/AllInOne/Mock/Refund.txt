@@ -1,0 +1,16 @@
+HTTP/1.1 200
+Server: nginx
+Date: Mon, 24 Jun 2019 08:15:00 GMT
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+Set-Cookie: JSESSIONID=1B05078B2A14368530F72A77119B7700;path=/gw_payment/;HttpOnly
+Pragma: no-cache
+Access-Control-Allow-Origin: *
+X-Kong-Upstream-Latency: 5
+X-Kong-Proxy-Latency: 0
+Via: kong/0.14.1
+Strict-Transport-Security: max-age=15768000
+
+{"accessKey":"E8HZuQRy2RsjVtZp","partnerCode":"MOMO0HGO20180417","orderId":"0.38857000 1561110614","requestId":"1561364077.6997","transId":"123","amount":"10000","requestType":"refundMoMoWallet","signature":"55851d3528b6e15218c6363c03b404f0f83bba10813c400ad3d3b57bf3369d12","errorCode":78,"message":"Permission denied","localMessage":"Không có quyền truy cập."}
