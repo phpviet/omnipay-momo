@@ -21,7 +21,7 @@ abstract class AbstractIncomingRequest extends AbstractRequest
      */
     public function getData(): array
     {
-        call_user_func_array([$this, 'validate'], array_keys($parameters = $this->getIncomingParameters()));
+        call_user_func_array([$this, 'validate'], array_keys($parameters = $this->getParameters()));
 
         return $parameters;
     }
