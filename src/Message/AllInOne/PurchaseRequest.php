@@ -8,12 +8,13 @@
 namespace Omnipay\MoMo\Message\AllInOne;
 
 /**
+ * @link https://developers.momo.vn/#/docs/aio/?id=ph%c6%b0%c6%a1ng-th%e1%bb%a9c-thanh-to%c3%a1n
+ *
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
 class PurchaseRequest extends AbstractRequest
 {
-
     protected $responseClass = PurchaseResponse::class;
 
     /**

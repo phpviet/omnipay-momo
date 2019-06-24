@@ -8,6 +8,8 @@
 namespace Omnipay\MoMo\Message\AllInOne;
 
 /**
+ * @link https://developers.momo.vn/#/docs/aio/?id=tr%e1%ba%a1ng-th%c3%a1i-giao-d%e1%bb%8bch
+ *
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
