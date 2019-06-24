@@ -16,7 +16,7 @@ class IncomingResponse extends Response
     /**
      * {@inheritdoc}
      */
-    protected function getSignatureParameters(string $requestType): array
+    protected function getSignatureParameters(): array
     {
         return [
             'partnerCode', 'accessKey', 'requestId', 'amount', 'orderId', 'orderInfo', 'orderType',

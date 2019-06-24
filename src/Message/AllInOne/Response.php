@@ -29,7 +29,7 @@ class Response extends AbstractResponse
     {
         parent::__construct($request, $data);
 
-        if ($this->isSuccessful()) {
+        if ('0' === $this->getCode()) {
             $this->validateSignature();
         }
     }
@@ -41,7 +41,7 @@ class Response extends AbstractResponse
      */
     public function isSuccessful(): bool
     {
-        return '0' === $this->getCode() ;
+        return '0' === $this->getCode();
     }
 
     /**

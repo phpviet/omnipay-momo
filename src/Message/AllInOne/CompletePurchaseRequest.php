@@ -22,13 +22,4 @@ class CompletePurchaseRequest extends AbstractIncomingRequest
     {
         return $this->httpRequest->query;
     }
-
-    /**
-     * {@inheritdoc}
-     * @throws \Omnipay\Common\Exception\InvalidResponseException
-     */
-    public function sendData($data): IncomingResponse
-    {
-        return $this->response = new IncomingResponse($this, $data);
-    }
 }

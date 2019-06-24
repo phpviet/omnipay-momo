@@ -18,9 +18,17 @@ class PurchaseResponse extends Response implements RedirectResponseInterface
     /**
      * {@inheritdoc}
      */
+    public function isSuccessful(): bool
+    {
+        return false;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function isRedirect(): bool
     {
-        return $this->isSuccessful();
+        return parent::isSuccessful();
     }
 
     /**

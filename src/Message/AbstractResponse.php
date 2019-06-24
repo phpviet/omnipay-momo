@@ -19,7 +19,7 @@ abstract class AbstractResponse extends BaseAbstractResponse
      * Phương thức hổ trợ tạo các thuộc tính của đối tượng từ dữ liệu gửi về từ MoMo.
      *
      * @param  string  $name
-     * @return |null
+     * @return null|string
      */
     public function __get($name)
     {

@@ -25,13 +25,4 @@ class NotificationRequest extends AbstractIncomingRequest
 
         return new ParameterBag($data);
     }
-
-    /**
-     * {@inheritdoc}
-     * @throws \Omnipay\Common\Exception\InvalidResponseException
-     */
-    public function sendData($data): IncomingResponse
-    {
-        return $this->response = new IncomingResponse($this, $data);
-    }
 }
