@@ -23,12 +23,4 @@ class QueryRefundRequest extends AbstractRequest
 
         return parent::getData();
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function responseClass(): string
-    {
-        return QueryRefundResponse::class;
-    }
 }

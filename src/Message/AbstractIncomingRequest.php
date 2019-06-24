@@ -15,15 +15,13 @@ use Omnipay\Common\Message\AbstractRequest;
  */
 abstract class AbstractIncomingRequest extends AbstractRequest
 {
-    use Concerns\IncomingRequestParameters;
-
     /**
      * {@inheritdoc}
      * @throws \Omnipay\Common\Exception\InvalidRequestException
      */
     public function getData(): array
     {
-        $this->validate(array_keys($parameters = $this->getParameters()));
+        $this->validate(array_keys($parameters = $this->getIncomingParameters()));
 
         return $parameters;
     }
@@ -33,8 +31,17 @@ abstract class AbstractIncomingRequest extends AbstractRequest
      */
     public function initialize(array $parameters = []): self
     {
+        parent::initialize();
+
         $this->parameters->replace($this->getIncomingParameters());
 
         return $this;
     }
+
+    /**
+     * Trả về danh sách parameters từ MoMo gửi sang.
+     *
+     * @return array
+     */
+    abstract protected function getIncomingParameters(): array;
 }

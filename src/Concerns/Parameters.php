@@ -32,13 +32,4 @@ trait Parameters
     {
         $this->setParameter('partnerCode', $code);
     }
-
-    /**
-     * Phương thức trừu tượng thiết lập param.
-     *
-     * @param $key
-     * @param $value
-     * @return mixed
-     */
-    abstract public function setParameter($key, $value);
 }

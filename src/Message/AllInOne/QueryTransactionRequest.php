@@ -22,12 +22,4 @@ class QueryTransactionRequest extends AbstractRequest
 
         return parent::getData();
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function responseClass(): string
-    {
-        return QueryTransactionResponse::class;
-    }
 }

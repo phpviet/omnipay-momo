@@ -15,4 +15,14 @@ use Omnipay\Common\Message\AbstractResponse as BaseAbstractResponse;
  */
 abstract class AbstractResponse extends BaseAbstractResponse
 {
+    /**
+     * Phương thức hổ trợ tạo các thuộc tính của đối tượng từ dữ liệu gửi về từ MoMo.
+     *
+     * @param  string  $name
+     * @return |null
+     */
+    public function __get($name)
+    {
+        return $this->data[$name] ?? null;
+    }
 }

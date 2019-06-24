@@ -5,8 +5,9 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message\Concerns;
+namespace Omnipay\MoMo\Message\AllInOne\Concerns;
 
+use Omnipay\MoMo\Concerns\AllInOneParameters;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
@@ -15,6 +16,8 @@ use Symfony\Component\HttpFoundation\ParameterBag;
  */
 trait IncomingRequestParameters
 {
+    use AllInOneParameters;
+
     /**
      * {@inheritdoc}
      */
@@ -25,7 +28,7 @@ trait IncomingRequestParameters
             'partnerCode', 'accessKey', 'requestId', 'amount', 'orderId', 'orderInfo', 'orderType', 'transId',
             'message', 'localMessage', 'responseTime', 'errorCode', 'extraData', 'signature', 'payType',
         ];
-        $bag = $this->getIncomingParameterBag();
+        $bag = $this->getIncomingParametersBag();
 
         foreach ($params as $param) {
             $data[$param] = $bag->get($param);
@@ -39,5 +42,5 @@ trait IncomingRequestParameters
      *
      * @return \Symfony\Component\HttpFoundation\ParameterBag
      */
-    abstract protected function getIncomingParameterBag(): ParameterBag;
+    abstract protected function getIncomingParametersBag(): ParameterBag;
 }

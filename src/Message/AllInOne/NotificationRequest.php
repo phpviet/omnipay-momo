@@ -13,22 +13,25 @@ use Symfony\Component\HttpFoundation\ParameterBag;
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class CompletePurchaseNotifyRequest extends AbstractIncomingRequest
+class NotificationRequest extends AbstractIncomingRequest
 {
     /**
      * {@inheritdoc}
      */
-    protected function getIncomingParameterBag(): ParameterBag
+    protected function getIncomingParametersBag(): ParameterBag
     {
-        return $this->httpRequest->request;
+        $json = $this->httpRequest->getContent();
+        $data = json_decode($json, true);
+
+        return new ParameterBag($data);
     }
 
     /**
      * {@inheritdoc}
      * @throws \Omnipay\Common\Exception\InvalidResponseException
      */
-    public function sendData($data): CompletePurchaseNotifyResponse
+    public function sendData($data): IncomingResponse
     {
-        return $this->response = new CompletePurchaseNotifyResponse($this, $data);
+        return $this->response = new IncomingResponse($this, $data);
     }
 }

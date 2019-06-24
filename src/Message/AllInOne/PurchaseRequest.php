@@ -13,6 +13,9 @@ namespace Omnipay\MoMo\Message\AllInOne;
  */
 class PurchaseRequest extends AbstractRequest
 {
+
+    protected $responseClass = PurchaseResponse::class;
+
     /**
      * Thiết lập dữ liệu kèm theo đơn hàng.
      *
@@ -45,13 +48,5 @@ class PurchaseRequest extends AbstractRequest
         $this->setParameter('requestType', 'captureMoMoWallet');
 
         return parent::getData();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function responseClass(): string
-    {
-        return PurchaseResponse::class;
     }
 }

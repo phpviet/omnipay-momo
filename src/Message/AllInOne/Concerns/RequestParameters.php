@@ -36,13 +36,4 @@ trait RequestParameters
     {
         $this->setParameter('orderId', $id);
     }
-
-    /**
-     * Phương thức trừu tượng thiết lập param.
-     *
-     * @param $key
-     * @param $value
-     * @return mixed
-     */
-    abstract protected function setParameter($key, $value);
 }

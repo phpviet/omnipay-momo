@@ -18,7 +18,7 @@ class CompletePurchaseRequest extends AbstractIncomingRequest
     /**
      * {@inheritdoc}
      */
-    protected function getIncomingParameterBag(): ParameterBag
+    protected function getIncomingParametersBag(): ParameterBag
     {
         return $this->httpRequest->query;
     }
@@ -27,8 +27,8 @@ class CompletePurchaseRequest extends AbstractIncomingRequest
      * {@inheritdoc}
      * @throws \Omnipay\Common\Exception\InvalidResponseException
      */
-    public function sendData($data): CompletePurchaseResponse
+    public function sendData($data): IncomingResponse
     {
-        return $this->response = new CompletePurchaseResponse($this, $data);
+        return $this->response = new IncomingResponse($this, $data);
     }
 }

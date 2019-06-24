@@ -11,9 +11,9 @@ use Omnipay\Common\AbstractGateway;
 use Omnipay\MoMo\Message\AllInOne\RefundRequest;
 use Omnipay\MoMo\Message\AllInOne\PurchaseRequest;
 use Omnipay\MoMo\Message\AllInOne\QueryRefundRequest;
+use Omnipay\MoMo\Message\AllInOne\NotificationRequest;
 use Omnipay\MoMo\Message\AllInOne\QueryTransactionRequest;
 use Omnipay\MoMo\Message\AllInOne\CompletePurchaseRequest;
-use Omnipay\MoMo\Message\AllInOne\CompletePurchaseNotifyRequest;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
@@ -43,14 +43,14 @@ class AllInOneGateway extends AbstractGateway
     }
 
     /**
-     * Create complete purchase notify request.
+     * Create complete purchase notification request.
      *
      * @param  array  $options
-     * @return \Omnipay\Common\Message\RequestInterface|CompletePurchaseNotifyRequest
+     * @return \Omnipay\Common\Message\RequestInterface|NotificationRequest
      */
-    public function completePurchaseNotify(array $options = []): CompletePurchaseNotifyRequest
+    public function notification(array $options = []): NotificationRequest
     {
-        return $this->createRequest(CompletePurchaseNotifyRequest::class, $options);
+        return $this->createRequest(NotificationRequest::class, $options);
     }
 
     /**

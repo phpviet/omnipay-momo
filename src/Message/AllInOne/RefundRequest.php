@@ -34,12 +34,4 @@ class RefundRequest extends AbstractRequest
 
         return parent::getData();
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    protected function responseClass(): string
-    {
-        return RefundResponse::class;
-    }
 }

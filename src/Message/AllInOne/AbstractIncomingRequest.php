@@ -15,5 +15,5 @@ use Omnipay\MoMo\Message\AbstractIncomingRequest as BaseAbstractIncomingRequest;
  */
 abstract class AbstractIncomingRequest extends BaseAbstractIncomingRequest
 {
-    use Concerns\RequestParameters;
+    use Concerns\IncomingRequestParameters;
 }
