@@ -18,10 +18,25 @@ class QueryTransactionRequest extends AbstractRequest
     /**
      * {@inheritdoc}
      */
+    protected $responseClass = QueryTransactionResponse::class;
+
+    /**
+     * {@inheritdoc}
+     */
     public function getData(): array
     {
         $this->setParameter('requestType', 'transactionStatus');
 
         return parent::getData();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getSignatureParameters(): array
+    {
+        return [
+            'partnerCode', 'accessKey', 'requestId', 'orderId', 'requestType',
+        ];
     }
 }

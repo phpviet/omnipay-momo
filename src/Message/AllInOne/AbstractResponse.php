@@ -7,43 +7,14 @@
 
 namespace Omnipay\MoMo\Message\AllInOne;
 
-use Omnipay\MoMo\Message\AbstractResponse;
-use Omnipay\Common\Message\RequestInterface;
+use Omnipay\MoMo\Message\AbstractResponse as BaseAbstractResponse;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class Response extends AbstractResponse
+abstract class AbstractResponse extends BaseAbstractResponse
 {
-    use Concerns\ResponseSignatureValidation;
-
-    /**
-     * Khởi tạo đối tượng Response.
-     *
-     * @param  \Omnipay\Common\Message\RequestInterface  $request
-     * @param $data
-     * @throws \Omnipay\Common\Exception\InvalidResponseException
-     */
-    public function __construct(RequestInterface $request, $data)
-    {
-        parent::__construct($request, $data);
-
-        if ('0' === $this->getCode()) {
-            $this->validateSignature();
-        }
-    }
-
-    /**
-     * Trả về trạng thái do MoMo phản hồi.
-     *
-     * @return bool
-     */
-    public function isSuccessful(): bool
-    {
-        return '0' === $this->getCode();
-    }
-
     /**
      * Trả về thông báo từ MoMo.
      *

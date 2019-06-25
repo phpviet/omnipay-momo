@@ -7,6 +7,14 @@
 
 namespace Omnipay\MoMo;
 
-class PosGateway
+use Omnipay\Common\AbstractGateway;
+
+/**
+ * @author Vuong Minh <vuongxuongminh@gmail.com>
+ * @since 1.0.0
+ */
+class PosGateway extends AbstractGateway
 {
+    use Concerns\PosParameters;
+
 }

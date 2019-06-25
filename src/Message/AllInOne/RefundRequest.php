@@ -16,6 +16,11 @@ namespace Omnipay\MoMo\Message\AllInOne;
 class RefundRequest extends AbstractRequest
 {
     /**
+     * {@inheritdoc}
+     */
+    protected $responseClass = RefundResponse::class;
+
+    /**
      * Thiết lập mã giao dịch của MoMo.
      *
      * @param  string  $id
@@ -31,9 +36,18 @@ class RefundRequest extends AbstractRequest
      */
     public function getData(): array
     {
-        $this->validate('transId', 'amount');
         $this->setParameter('requestType', 'refundMoMoWallet');
 
         return parent::getData();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getSignatureParameters(): array
+    {
+        return [
+            'partnerCode', 'accessKey', 'requestId', 'amount', 'orderId', 'transId', 'requestType',
+        ];
     }
 }

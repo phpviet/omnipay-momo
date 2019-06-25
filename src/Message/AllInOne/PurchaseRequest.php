@@ -15,6 +15,9 @@ namespace Omnipay\MoMo\Message\AllInOne;
  */
 class PurchaseRequest extends AbstractRequest
 {
+    /**
+     * {@inheritdoc}
+     */
     protected $responseClass = PurchaseResponse::class;
 
     /**
@@ -43,11 +46,21 @@ class PurchaseRequest extends AbstractRequest
      */
     public function getData(): array
     {
-        $this->validate('amount', 'returnUrl', 'notifyUrl');
         $this->setOrderInfo($this->getParameter('orderInfo') ?? '');
         $this->setExtraData($this->getParameter('extraData') ?? '');
         $this->setParameter('requestType', 'captureMoMoWallet');
 
         return parent::getData();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getSignatureParameters(): array
+    {
+        return [
+            'partnerCode', 'accessKey', 'requestId', 'amount', 'orderId', 'orderInfo', 'returnUrl', 'notifyUrl',
+            'extraData',
+        ];
     }
 }

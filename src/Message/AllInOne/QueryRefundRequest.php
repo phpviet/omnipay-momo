@@ -17,6 +17,11 @@ class QueryRefundRequest extends AbstractRequest
 {
     /**
      * {@inheritdoc}
+     */
+    protected $responseClass = QueryRefundResponse::class;
+
+    /**
+     * {@inheritdoc}
      * @throws \Omnipay\Common\Exception\InvalidRequestException
      */
     public function getData(): array
@@ -24,5 +29,15 @@ class QueryRefundRequest extends AbstractRequest
         $this->setParameter('requestType', 'refundStatus');
 
         return parent::getData();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getSignatureParameters(): array
+    {
+        return [
+            'partnerCode', 'accessKey', 'requestId', 'orderId', 'requestType',
+        ];
     }
 }

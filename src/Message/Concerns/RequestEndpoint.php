@@ -22,12 +22,4 @@ trait RequestEndpoint
     {
         return $this->getTestMode() ? 'https://test-payment.momo.vn' : 'https://payment.momo.vn';
     }
-
-    /**
-     * Phương thức trừu tượng trả về TRUE nếu như ở trong môi trường test ngược lại FALSE hoặc NULL.
-     *
-     * @param $key
-     * @return mixed
-     */
-    abstract public function getTestMode();
 }

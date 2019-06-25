@@ -7,6 +7,13 @@
 
 namespace Omnipay\MoMo;
 
-class AppInAppGateway
+use Omnipay\Common\AbstractGateway;
+
+/**
+ * @author Vuong Minh <vuongxuongminh@gmail.com>
+ * @since 1.0.0
+ */
+class AppInAppGateway extends AbstractGateway
 {
+    use Concerns\Parameters;
 }

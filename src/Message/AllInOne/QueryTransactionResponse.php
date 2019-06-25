@@ -11,7 +11,7 @@ namespace Omnipay\MoMo\Message\AllInOne;
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class IncomingResponse extends AbstractResponse
+class QueryTransactionResponse extends AbstractResponse
 {
     /**
      * {@inheritdoc}
@@ -19,8 +19,8 @@ class IncomingResponse extends AbstractResponse
     protected function getSignatureParameters(): array
     {
         return [
-            'partnerCode', 'accessKey', 'requestId', 'amount', 'orderId', 'orderInfo', 'orderType',
-            'transId', 'message', 'localMessage', 'responseTime', 'errorCode', 'payType', 'extraData',
+            'partnerCode', 'accessKey', 'requestId', 'orderId', 'errorCode', 'transId', 'amount', 'message',
+            'localMessage', 'requestType', 'payType', 'extraData',
         ];
     }
 }

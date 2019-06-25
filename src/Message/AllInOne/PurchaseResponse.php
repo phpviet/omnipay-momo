@@ -13,7 +13,7 @@ use Omnipay\Common\Message\RedirectResponseInterface;
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class PurchaseResponse extends Response implements RedirectResponseInterface
+class PurchaseResponse extends AbstractResponse implements RedirectResponseInterface
 {
     /**
      * {@inheritdoc}
@@ -28,7 +28,7 @@ class PurchaseResponse extends Response implements RedirectResponseInterface
      */
     public function isRedirect(): bool
     {
-        return parent::isSuccessful();
+        return isset($this->data['payUrl']);
     }
 
     /**
@@ -37,5 +37,15 @@ class PurchaseResponse extends Response implements RedirectResponseInterface
     public function getRedirectUrl(): string
     {
         return $this->data['payUrl'];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getSignatureParameters(): array
+    {
+        return [
+            'requestId', 'orderId', 'message', 'localMessage', 'payUrl', 'errorCode', 'requestType',
+        ];
     }
 }

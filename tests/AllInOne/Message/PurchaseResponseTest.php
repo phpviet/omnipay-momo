@@ -18,7 +18,6 @@ class PurchaseResponseTest extends TestCase
 {
     public function testConstruct()
     {
-        // response should decode URL format data
         $response = new PurchaseResponse($this->getMockRequest(), [
             'example' => 'value',
             'foo' => 'bar',

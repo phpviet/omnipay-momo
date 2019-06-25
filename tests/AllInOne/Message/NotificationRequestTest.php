@@ -36,6 +36,7 @@ class NotificationRequestTest extends TestCase
     public function testGetData()
     {
         $data = $this->request->getData();
+        $this->assertEquals(15, count($data));
         $this->assertEquals(1, $data['partnerCode']);
         $this->assertEquals(2, $data['accessKey']);
         $this->assertEquals(3, $data['requestId']);

@@ -7,6 +7,7 @@
 
 namespace Omnipay\MoMo\Message;
 
+use Omnipay\Common\Message\RequestInterface;
 use Omnipay\Common\Message\AbstractResponse as BaseAbstractResponse;
 
 /**
@@ -15,20 +16,32 @@ use Omnipay\Common\Message\AbstractResponse as BaseAbstractResponse;
  */
 abstract class AbstractResponse extends BaseAbstractResponse
 {
-    /**
-     * Phương thức hổ trợ tạo các thuộc tính của đối tượng từ dữ liệu gửi về từ MoMo.
-     *
-     * @param  string  $name
-     * @return null|string
-     */
-    public function __get($name)
-    {
-        if (isset($this->data[$name])) {
-            return $this->data[$name];
-        } else {
-            trigger_error(sprintf('Undefined property: %s::%s', __CLASS__, '$'.$name), E_USER_NOTICE);
+    use Concerns\ResponseProperties;
+    use Concerns\ResponseSignatureValidation;
 
-            return null;
+    /**
+     * Khởi tạo đối tượng Response.
+     *
+     * @param  \Omnipay\Common\Message\RequestInterface  $request
+     * @param $data
+     * @throws \Omnipay\Common\Exception\InvalidResponseException
+     */
+    public function __construct(RequestInterface $request, $data)
+    {
+        parent::__construct($request, $data);
+
+        if ('0' === $this->getCode()) {
+            $this->validateSignature();
         }
+    }
+
+    /**
+     * Trả về trạng thái do MoMo phản hồi.
+     *
+     * @return bool
+     */
+    public function isSuccessful(): bool
+    {
+        return '0' === $this->getCode();
     }
 }

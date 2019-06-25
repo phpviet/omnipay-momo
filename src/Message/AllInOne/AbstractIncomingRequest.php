@@ -7,6 +7,8 @@
 
 namespace Omnipay\MoMo\Message\AllInOne;
 
+use Omnipay\MoMo\Concerns\AllInOneParameters;
+use Symfony\Component\HttpFoundation\ParameterBag;
 use Omnipay\MoMo\Message\AbstractIncomingRequest as BaseAbstractIncomingRequest;
 
 /**
@@ -15,7 +17,7 @@ use Omnipay\MoMo\Message\AbstractIncomingRequest as BaseAbstractIncomingRequest;
  */
 abstract class AbstractIncomingRequest extends BaseAbstractIncomingRequest
 {
-    use Concerns\IncomingRequestParameters;
+    use AllInOneParameters;
 
     /**
      * {@inheritdoc}
@@ -25,4 +27,30 @@ abstract class AbstractIncomingRequest extends BaseAbstractIncomingRequest
     {
         return $this->response = new IncomingResponse($this, $data);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getIncomingParameters(): array
+    {
+        $data = [];
+        $params = [
+            'partnerCode', 'accessKey', 'requestId', 'amount', 'orderId', 'orderInfo', 'orderType', 'transId',
+            'message', 'localMessage', 'responseTime', 'errorCode', 'extraData', 'signature', 'payType',
+        ];
+        $bag = $this->getIncomingParametersBag();
+
+        foreach ($params as $param) {
+            $data[$param] = $bag->get($param);
+        }
+
+        return $data;
+    }
+
+    /**
+     * Trả về request parameter bag.
+     *
+     * @return \Symfony\Component\HttpFoundation\ParameterBag
+     */
+    abstract protected function getIncomingParametersBag(): ParameterBag;
 }

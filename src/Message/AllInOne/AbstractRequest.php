@@ -7,6 +7,7 @@
 
 namespace Omnipay\MoMo\Message\AllInOne;
 
+use Omnipay\MoMo\Concerns\AllInOneParameters;
 use Omnipay\MoMo\Message\AbstractRequest as BaseAbstractRequest;
 
 /**
@@ -15,28 +16,23 @@ use Omnipay\MoMo\Message\AbstractRequest as BaseAbstractRequest;
  */
 abstract class AbstractRequest extends BaseAbstractRequest
 {
-    use Concerns\RequestSignature;
-    use Concerns\RequestParameters;
+    use AllInOneParameters;
 
     /**
      * Trả về lớp đối tượng phản hồi tương ứng của Request.
      *
      * @var string
      */
-    protected $responseClass = Response::class;
+    protected $responseClass;
 
     /**
-     * {@inheritdoc}
-     * @throws \Omnipay\Common\Exception\InvalidRequestException
+     * Thiết lập id đơn hàng.
+     *
+     * @param  string  $id
      */
-    public function getData(): array
+    public function setOrderId(string $id): void
     {
-        $parameters = $this->getParameters();
-        unset($parameters['secretKey'], $parameters['testMode']);
-        $this->validate('partnerCode', 'accessKey', 'requestId', 'orderId', 'secretKey', 'requestType');
-        $parameters['signature'] = $this->generateSignature();
-
-        return $parameters;
+        $this->setParameter('orderId', $id);
     }
 
     /**
