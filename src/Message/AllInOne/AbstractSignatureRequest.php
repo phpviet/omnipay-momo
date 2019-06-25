@@ -36,6 +36,16 @@ abstract class AbstractSignatureRequest extends BaseAbstractSignatureRequest
     }
 
     /**
+     * Thiết lập request id của đơn hàng.
+     *
+     * @param  string  $id
+     */
+    public function setRequestId(string $id): void
+    {
+        $this->setParameter('requestId', $id);
+    }
+
+    /**
      * {@inheritdoc}
      * @throws \Omnipay\Common\Exception\InvalidResponseException
      */

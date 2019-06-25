@@ -22,6 +22,16 @@ class PayConfirmRequest extends AbstractSignatureRequest
     use Parameters;
 
     /**
+     * Thiết lập request id của đơn hàng.
+     *
+     * @param  string  $id
+     */
+    public function setRequestId(string $id): void
+    {
+        $this->setParameter('requestId', $id);
+    }
+
+    /**
      * Thiết lập mã đơn hàng.
      *
      * @param  string  $id

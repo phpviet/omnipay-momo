@@ -7,6 +7,8 @@
 
 namespace Omnipay\MoMo\Message;
 
+use Omnipay\Common\Message\AbstractRequest;
+
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
