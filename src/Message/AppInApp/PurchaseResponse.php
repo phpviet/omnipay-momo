@@ -5,13 +5,15 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message;
+namespace Omnipay\MoMo\Message\AppInApp;
+
+use Omnipay\MoMo\Message\AbstractSignatureResponse;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class PayConfirmResponse extends AbstractSignatureResponse
+class PurchaseResponse extends AbstractSignatureResponse
 {
     /**
      * {@inheritdoc}
@@ -19,7 +21,7 @@ class PayConfirmResponse extends AbstractSignatureResponse
     protected function getSignatureParameters(): array
     {
         return [
-            'amount', 'momoTransId', 'partnerCode', 'partnerRefId',
+            'status', 'message', 'amount', 'transid',
         ];
     }
 
@@ -36,14 +38,6 @@ class PayConfirmResponse extends AbstractSignatureResponse
      */
     public function getTransactionReference(): ?string
     {
-        return $this->data['data']['momoTransId'] ?? null;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getTransactionId(): ?string
-    {
-        return $this->data['data']['partnerRefId'] ?? null;
+        return $this->data['transid'] ?? null;
     }
 }

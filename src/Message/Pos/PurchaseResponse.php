@@ -16,12 +16,26 @@ use Omnipay\MoMo\Message\AbstractResponse;
 class PurchaseResponse extends AbstractResponse
 {
     /**
-     * Mã trạng thái gửi về từ MoMo.
-     *
-     * @return string|null
+     * {@inheritdoc}
      */
     public function getCode(): ?string
     {
         return $this->data['status'] ?? null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getMessage(): ?string
+    {
+        return $this->data['message']['description'] ?? null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getTransactionReference(): ?string
+    {
+        return $this->data['message']['transid'] ?? null;
     }
 }

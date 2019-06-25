@@ -7,8 +7,6 @@
 
 namespace Omnipay\MoMo\Message;
 
-use Omnipay\Common\Message\AbstractRequest;
-
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
@@ -21,7 +19,10 @@ abstract class AbstractIncomingRequest extends AbstractRequest
      */
     public function getData(): array
     {
-        call_user_func_array([$this, 'validate'], array_keys($parameters = $this->getParameters()));
+        call_user_func_array(
+            [$this, 'validate'],
+            array_keys($parameters = $this->getIncomingParameters())
+        );
 
         return $parameters;
     }
@@ -33,7 +34,9 @@ abstract class AbstractIncomingRequest extends AbstractRequest
     {
         parent::initialize();
 
-        $this->parameters->replace($this->getIncomingParameters());
+        $this->parameters->replace(
+            $this->getIncomingParameters()
+        );
 
         return $this;
     }

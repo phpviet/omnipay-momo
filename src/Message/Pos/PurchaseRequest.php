@@ -60,9 +60,11 @@ class PurchaseRequest extends AbstractHashRequest
 
     /**
      * {@inheritdoc}
+     * @throws \Omnipay\Common\Exception\InvalidRequestException
      */
     public function getData(): array
     {
+        $this->validate('paymentCode');
         $this->setParameter('payType', 3);
         $parameters = parent::getData();
         unset($parameters['paymentCode']);

@@ -11,6 +11,8 @@ use Omnipay\MoMo\Concerns\Parameters;
 
 /**
  * @link https://developers.momo.vn/#/docs/pos_payment?id=x%c3%a1c-nh%e1%ba%adn-giao-d%e1%bb%8bch
+ * @link https://developers.momo.vn/#/docs/qr_payment?id=x%c3%a1c-nh%e1%ba%adn-giao-d%e1%bb%8bch
+ * @link https://developers.momo.vn/#/docs/app_in_app?id=x%c3%a1c-nh%e1%ba%adn-giao-d%e1%bb%8bch
  *
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
@@ -18,7 +20,6 @@ use Omnipay\MoMo\Concerns\Parameters;
 class PayConfirmRequest extends AbstractSignatureRequest
 {
     use Parameters;
-    use Concerns\RequestSignature;
 
     /**
      * Thiết lập mã đơn hàng.
