@@ -12,7 +12,7 @@ class Arr
     /**
      * Hổ trợ lấy giá trị trong mảng với định dạng 'a.b.c'
      *
-     * @param $element
+     * @param  mixed  $element
      * @param  array  $arr
      * @param  null  $default
      * @return mixed

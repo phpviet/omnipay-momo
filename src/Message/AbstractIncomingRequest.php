@@ -32,11 +32,11 @@ abstract class AbstractIncomingRequest extends AbstractRequest
      */
     public function initialize(array $parameters = []): self
     {
-        parent::initialize();
+        parent::initialize($parameters);
 
-        $this->parameters->replace(
-            $this->getIncomingParameters()
-        );
+        foreach ($this->getIncomingParameters() as $parameter => $value) {
+            $this->setParameter($parameter, $value);
+        }
 
         return $this;
     }
