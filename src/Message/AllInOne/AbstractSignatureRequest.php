@@ -8,13 +8,13 @@
 namespace Omnipay\MoMo\Message\AllInOne;
 
 use Omnipay\MoMo\Concerns\AllInOneParameters;
-use Omnipay\MoMo\Message\AbstractRequest as BaseAbstractRequest;
+use Omnipay\MoMo\Message\AbstractSignatureRequest as BaseAbstractSignatureRequest;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-abstract class AbstractRequest extends BaseAbstractRequest
+abstract class AbstractSignatureRequest extends BaseAbstractSignatureRequest
 {
     use AllInOneParameters;
 
@@ -45,8 +45,8 @@ abstract class AbstractRequest extends BaseAbstractRequest
             'Content-Type' => 'application/json; charset=UTF-8',
         ], json_encode($data));
         $responseClass = $this->responseClass;
-        $responseData = json_decode($response->getBody()->getContents(), true);
+        $responseData = $response->getBody()->getContents();
 
-        return $this->response = new $responseClass($this, $responseData ?? []);
+        return $this->response = new $responseClass($this, json_decode($responseData, true) ?? []);
     }
 }

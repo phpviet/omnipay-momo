@@ -20,8 +20,18 @@ trait PosParameters
      *
      * @param  string  $key
      */
-    public function setPublicKey($key): void
+    public function setPublicKey(string $key): void
     {
         $this->setParameter('publicKey', $key);
+    }
+
+    /**
+     * Thiết lập pos version.
+     *
+     * @param  string  $version
+     */
+    public function setVersion(string $version): void
+    {
+        $this->setParameter('version', $version);
     }
 }

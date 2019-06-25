@@ -7,20 +7,19 @@
 
 namespace Omnipay\MoMo\Message;
 
-use Omnipay\Common\Message\AbstractRequest as BaseAbstractRequest;
+use Omnipay\Common\Message\AbstractRequest;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-abstract class AbstractRequest extends BaseAbstractRequest
+abstract class AbstractSignatureRequest extends AbstractRequest
 {
     use Concerns\RequestEndpoint;
     use Concerns\RequestSignature;
 
     /**
      * {@inheritdoc}
-     * @throws \Omnipay\Common\Exception\InvalidRequestException
      */
     public function getData(): array
     {

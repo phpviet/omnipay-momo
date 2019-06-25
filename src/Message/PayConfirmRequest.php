@@ -10,10 +10,12 @@ namespace Omnipay\MoMo\Message;
 use Omnipay\MoMo\Concerns\Parameters;
 
 /**
+ * @link https://developers.momo.vn/#/docs/pos_payment?id=x%c3%a1c-nh%e1%ba%adn-giao-d%e1%bb%8bch
+ *
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class PayConfirmRequest extends AbstractRequest
+class PayConfirmRequest extends AbstractSignatureRequest
 {
     use Parameters;
     use Concerns\RequestSignature;
@@ -48,14 +50,28 @@ class PayConfirmRequest extends AbstractRequest
         $this->setParameter('customerNumber', $number);
     }
 
-    public function getData()
+    /**
+     * Thiết lập loại request type yêu cầu MoMo, commit hoặc rollback.
+     *
+     * @param  string  $type
+     */
+    public function setRequestType(string $type): void
     {
-        $this->validate('partnerCode', 'partnerRefId', 'requestType', 'requestId', 'momoTransId');
+        $this->setParameter('requestType', $type);
     }
 
-    public function sendData($data)
+    /**
+     * {@inheritdoc}
+     * @throws \Omnipay\Common\Exception\InvalidResponseException
+     */
+    public function sendData($data): PayConfirmResponse
     {
-        // TODO: Implement sendData() method.
+        $response = $this->httpClient->request('POST', $this->getEndpoint().'/pay/confirm', [
+            'Content-Type' => 'application/json; charset=utf-8',
+        ], json_encode($data));
+        $responseData = $response->getBody()->getContents();
+
+        return $this->response = new PayConfirmResponse($this, json_decode($responseData, true) ?? []);
     }
 
     /**

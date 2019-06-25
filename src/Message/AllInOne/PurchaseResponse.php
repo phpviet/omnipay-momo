@@ -13,7 +13,7 @@ use Omnipay\Common\Message\RedirectResponseInterface;
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class PurchaseResponse extends AbstractResponse implements RedirectResponseInterface
+class PurchaseResponse extends AbstractSignatureResponse implements RedirectResponseInterface
 {
     /**
      * {@inheritdoc}

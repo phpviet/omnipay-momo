@@ -34,9 +34,7 @@ class AllInOneGateway extends AbstractGateway
     }
 
     /**
-     * Create complete purchase request.
-     *
-     * @param  array  $options
+     * {@inheritdoc}
      * @return \Omnipay\Common\Message\RequestInterface|CompletePurchaseRequest
      */
     public function completePurchase(array $options = []): CompletePurchaseRequest
@@ -45,7 +43,7 @@ class AllInOneGateway extends AbstractGateway
     }
 
     /**
-     * Create complete purchase notification request.
+     * Tạo request notification gửi từ MoMo.
      *
      * @param  array  $options
      * @return \Omnipay\Common\Message\RequestInterface|NotificationRequest
@@ -85,7 +83,8 @@ class AllInOneGateway extends AbstractGateway
     }
 
     /**
-     * {@inheritdoc}
+     * Tạo yêu cầu truy vấn thông tin hoàn tiền đến MoMo.
+     *
      * @return \Omnipay\Common\Message\RequestInterface|QueryRefundRequest
      */
     public function queryRefund(array $options = [])

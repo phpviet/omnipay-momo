@@ -13,7 +13,7 @@ namespace Omnipay\MoMo\Message\AllInOne;
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class QueryTransactionRequest extends AbstractRequest
+class QueryTransactionRequest extends AbstractSignatureRequest
 {
     /**
      * {@inheritdoc}

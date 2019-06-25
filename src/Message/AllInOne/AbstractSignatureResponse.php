@@ -7,24 +7,14 @@
 
 namespace Omnipay\MoMo\Message\AllInOne;
 
-use Omnipay\MoMo\Message\AbstractResponse as BaseAbstractResponse;
+use Omnipay\MoMo\Message\AbstractSignatureResponse as BaseAbstractSignatureResponse;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-abstract class AbstractResponse extends BaseAbstractResponse
+abstract class AbstractSignatureResponse extends BaseAbstractSignatureResponse
 {
-    /**
-     * Trả về thông báo từ MoMo.
-     *
-     * @return null|string
-     */
-    public function getMessage(): ?string
-    {
-        return $this->data['message'] ?? null;
-    }
-
     /**
      * Trả về mã báo lỗi từ MoMo. Nếu là 0 thì tương đương với thành công.
      *
