@@ -7,7 +7,6 @@
 
 namespace Omnipay\MoMo\Message\QRCode;
 
-use Omnipay\MoMo\Concerns\QRCodeParameters;
 use Omnipay\MoMo\Message\AbstractIncomingRequest;
 
 /**
@@ -16,8 +15,6 @@ use Omnipay\MoMo\Message\AbstractIncomingRequest;
  */
 class NotificationRequest extends AbstractIncomingRequest
 {
-    use QRCodeParameters;
-
     /**
      * {@inheritdoc}
      * @throws \Omnipay\Common\Exception\InvalidResponseException

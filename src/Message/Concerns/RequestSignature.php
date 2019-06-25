@@ -7,6 +7,7 @@
 
 namespace Omnipay\MoMo\Message\Concerns;
 
+use Omnipay\MoMo\Support\Arr;
 use Omnipay\MoMo\Support\Signature;
 
 /**
@@ -25,8 +26,12 @@ trait RequestSignature
         $data = [];
         $signature = new Signature($this->getParameter('secretKey'));
 
-        foreach ($this->getSignatureParameters() as $parameter) {
-            $data[$parameter] = $this->getParameter($parameter);
+        foreach ($this->getSignatureParameters() as $pos => $parameter) {
+            if (! is_string($pos)) {
+                $pos = $parameter;
+            }
+
+            $data[$pos] = $this->getParameter($parameter);
         }
 
         return $signature->generate($data);

@@ -14,6 +14,36 @@ namespace Omnipay\MoMo\Concerns;
 trait Parameters
 {
     /**
+     * Trả về access key do MoMo cấp.
+     *
+     * @return null|string
+     */
+    public function getAccessKey(): ?string
+    {
+        return $this->getParameter('accessKey');
+    }
+
+    /**
+     * Thiết lập access key do MoMo cấp.
+     *
+     * @param  string  $key
+     */
+    public function setAccessKey(string $key): void
+    {
+        $this->setParameter('accessKey', $key);
+    }
+
+    /**
+     * Trả về secret key do MoMo cấp.
+     *
+     * @return null|string
+     */
+    public function getSecretKey(): ?string
+    {
+        return $this->getParameter('secretKey');
+    }
+
+    /**
      * Thiết lập secret key do MoMo cấp.
      *
      * @param  string  $key
@@ -24,6 +54,16 @@ trait Parameters
     }
 
     /**
+     * Trả về partner code do MoMo cấp.
+     *
+     * @return null|string
+     */
+    public function getPartnerCode(): ?string
+    {
+        return $this->getParameter('partnerCode');
+    }
+
+    /**
      * Thiết lập partner code do MoMo cấp.
      *
      * @param  string  $code
@@ -31,5 +71,25 @@ trait Parameters
     public function setPartnerCode(string $code): void
     {
         $this->setParameter('partnerCode', $code);
+    }
+
+    /**
+     * Trả về public key do MoMo cấp.
+     *
+     * @return null|string
+     */
+    public function getPublicKey(): ?string
+    {
+        return $this->getParameter('publicKey');
+    }
+
+    /**
+     * Thiết lập public key do MoMo cấp.
+     *
+     * @param  string  $key
+     */
+    public function setPublicKey(string $key): void
+    {
+        $this->setParameter('publicKey', $key);
     }
 }

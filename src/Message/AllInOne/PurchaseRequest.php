@@ -21,6 +21,16 @@ class PurchaseRequest extends AbstractSignatureRequest
     protected $responseClass = PurchaseResponse::class;
 
     /**
+     * Trả về extra data gửi đến MoMo.
+     *
+     * @return null|string
+     */
+    public function getExtraData(): ?string
+    {
+        return $this->getParameter('extraData');
+    }
+
+    /**
      * Thiết lập dữ liệu kèm theo đơn hàng.
      *
      * @param  string  $data
@@ -28,6 +38,16 @@ class PurchaseRequest extends AbstractSignatureRequest
     public function setExtraData(string $data): void
     {
         $this->setParameter('extraData', $data);
+    }
+
+    /**
+     * Trả về order info gửi đến MoMo.
+     *
+     * @return null|string
+     */
+    public function getOrderInfo(): ?string
+    {
+        return $this->getParameter('orderInfo');
     }
 
     /**

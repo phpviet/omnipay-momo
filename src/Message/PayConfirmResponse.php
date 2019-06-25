@@ -19,7 +19,10 @@ class PayConfirmResponse extends AbstractSignatureResponse
     protected function getSignatureParameters(): array
     {
         return [
-            'amount', 'momoTransId', 'partnerCode', 'partnerRefId',
+            'amount' => 'data.amount',
+            'momoTransId' => 'data.momoTransId',
+            'partnerCode' => 'data.partnerCode',
+            'partnerRefId' => 'data.partnerRefId',
         ];
     }
 

@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 25 Jun 2019 08:56:42 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+X-Kong-Upstream-Latency: 310
+X-Kong-Proxy-Latency: 1
+Via: kong/0.14.1
+Strict-Transport-Security: max-age=15768000
+
+{"status":0,"message":"success","data":{"partnerCode":"MOMOIQA420180417","momoTransId":"12436514111","amount":30000,"partnerRefId":"Merchant123556666"},"signature":"1f807e8fbcd498b55fb135ae2352ddbea69932789a80dbd99d26ad6d70fc097c"}

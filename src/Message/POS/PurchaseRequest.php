@@ -7,7 +7,6 @@
 
 namespace Omnipay\MoMo\Message\POS;
 
-use Omnipay\MoMo\Concerns\POSParameters;
 use Omnipay\MoMo\Message\AbstractHashRequest;
 
 /**
@@ -16,8 +15,6 @@ use Omnipay\MoMo\Message\AbstractHashRequest;
  */
 class PurchaseRequest extends AbstractHashRequest
 {
-    use POSParameters;
-
     /**
      * {@inheritdoc}
      * @throws \Omnipay\Common\Exception\InvalidRequestException
@@ -26,6 +23,7 @@ class PurchaseRequest extends AbstractHashRequest
     {
         $this->validate('paymentCode');
         $this->setParameter('payType', 3);
+        $this->setParameter('version', 2);
         $parameters = parent::getData();
         unset($parameters['paymentCode']);
 
@@ -46,6 +44,16 @@ class PurchaseRequest extends AbstractHashRequest
     }
 
     /**
+     * Trả về store id.
+     *
+     * @return null|string
+     */
+    public function getStoreId(): ?string
+    {
+        return $this->getParameter('storeId');
+    }
+
+    /**
      * Thiết lập mã cửa hàng.
      *
      * @param  string  $id
@@ -53,6 +61,16 @@ class PurchaseRequest extends AbstractHashRequest
     public function setStoreId(string $id): void
     {
         $this->setParameter('storeId', $id);
+    }
+
+    /**
+     * Trả về tên cửa hàng.
+     *
+     * @return null|string
+     */
+    public function getStoreName(): ?string
+    {
+        return $this->getParameter('storeName');
     }
 
     /**
@@ -66,6 +84,16 @@ class PurchaseRequest extends AbstractHashRequest
     }
 
     /**
+     * Trả về mã đơn hàng.
+     *
+     * @return null|string
+     */
+    public function getPartnerRefId(): ?string
+    {
+        return $this->getParameter('partnerRefId');
+    }
+
+    /**
      * Thiết lập mã đơn hàng.
      *
      * @param  string  $id
@@ -73,6 +101,16 @@ class PurchaseRequest extends AbstractHashRequest
     public function setPartnerRefId(string $id): void
     {
         $this->setParameter('partnerRefId', $id);
+    }
+
+    /**
+     * Trả về mã thanh toán.
+     *
+     * @return null|string
+     */
+    public function getPaymentCode(): ?string
+    {
+        return $this->getParameter('paymentCode');
     }
 
     /**
@@ -91,7 +129,7 @@ class PurchaseRequest extends AbstractHashRequest
     protected function getHashParameters(): array
     {
         $parameters = [
-            'partnerCode', 'partnerRefId', 'amount', 'paymentCode', 'storeId', 'storeName',
+            'partnerCode', 'partnerRefId', 'amount', 'paymentCode',
         ];
 
         if ($this->getParameter('storeId')) {

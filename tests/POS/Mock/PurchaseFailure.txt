@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Tue, 25 Jun 2019 08:56:42 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Vary: Accept-Encoding
+X-Kong-Upstream-Latency: 310
+X-Kong-Proxy-Latency: 1
+Via: kong/0.14.1
+Strict-Transport-Security: max-age=15768000
+
+{"status":1014,"message":{"description":"Mã thanh toán đã quá hạn. Quý khách vui lòng tạo mới mã thanh toán và thực hiện lại.","transid":-1,"amount":30000,"phoneNumber":"0938***061"}}

@@ -7,7 +7,6 @@
 
 namespace Omnipay\MoMo\Message\AppInApp;
 
-use Omnipay\MoMo\Concerns\AppInAppParameters;
 use Omnipay\MoMo\Message\AbstractHashRequest;
 
 /**
@@ -16,8 +15,6 @@ use Omnipay\MoMo\Message\AbstractHashRequest;
  */
 class PurchaseRequest extends AbstractHashRequest
 {
-    use AppInAppParameters;
-
     /**
      * {@inheritdoc}
      */
@@ -25,6 +22,7 @@ class PurchaseRequest extends AbstractHashRequest
     {
         $this->validate('appData', 'customerNumber');
         $this->setParameter('payType', 3);
+        $this->setParameter('version', 2);
 
         return parent::getData();
     }
@@ -43,6 +41,16 @@ class PurchaseRequest extends AbstractHashRequest
     }
 
     /**
+     * Trả về app data token nhận từ MoMo.
+     *
+     * @return null|string
+     */
+    public function getAppData(): ?string
+    {
+        return $this->getParameter('appData');
+    }
+
+    /**
      * Thiết app token từ app MoMo gửi sang.
      *
      * @param  string  $appData
@@ -50,6 +58,16 @@ class PurchaseRequest extends AbstractHashRequest
     public function setAppData(string $appData): void
     {
         $this->setParameter('appData', $appData);
+    }
+
+    /**
+     * Trả về tên cửa hàng.
+     *
+     * @return null|string
+     */
+    public function getStoreId(): ?string
+    {
+        return $this->getParameter('storeId');
     }
 
     /**
@@ -63,6 +81,16 @@ class PurchaseRequest extends AbstractHashRequest
     }
 
     /**
+     * Trả về store name.
+     *
+     * @return null|string
+     */
+    public function getStoreName(): ?string
+    {
+        return $this->getParameter('storeName');
+    }
+
+    /**
      * Thiết lập tên cửa hàng.
      *
      * @param  string  $name
@@ -70,6 +98,16 @@ class PurchaseRequest extends AbstractHashRequest
     public function setStoreName(string $name): void
     {
         $this->setParameter('storeName', $name);
+    }
+
+    /**
+     * Trả về mã đơn hàng.
+     *
+     * @return null|string
+     */
+    public function getPartnerRefId(): ?string
+    {
+        return $this->getParameter('partnerRefId');
     }
 
     /**
@@ -83,6 +121,16 @@ class PurchaseRequest extends AbstractHashRequest
     }
 
     /**
+     * Trả về mã đơn hàng bổ sung.
+     *
+     * @return null|string
+     */
+    public function getPartnerTransId(): ?string
+    {
+        return $this->getParameter('partnerTransId');
+    }
+
+    /**
      * Thiết lập mã đơn hàng bổ sung.
      *
      * @param  string  $id
@@ -93,6 +141,16 @@ class PurchaseRequest extends AbstractHashRequest
     }
 
     /**
+     * Trả về tên công ty, đơn vị của bạn.
+     *
+     * @return null|string
+     */
+    public function getPartnerName(): ?string
+    {
+        return $this->getParameter('partnerName');
+    }
+
+    /**
      * Thiết lập tên công ty, tổ chức của bạn.
      *
      * @param  string  $name
@@ -100,6 +158,16 @@ class PurchaseRequest extends AbstractHashRequest
     public function setPartnerName(string $name): void
     {
         $this->setParameter('partnerName', $name);
+    }
+
+    /**
+     * Trả về số điện thoại khách hàng.
+     *
+     * @return null|string
+     */
+    public function getCustomerNumber(): ?string
+    {
+        return $this->getParameter('customerNumber');
     }
 
     /**

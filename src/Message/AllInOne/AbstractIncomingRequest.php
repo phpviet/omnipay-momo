@@ -7,7 +7,6 @@
 
 namespace Omnipay\MoMo\Message\AllInOne;
 
-use Omnipay\MoMo\Concerns\AllInOneParameters;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Omnipay\MoMo\Message\AbstractIncomingRequest as BaseAbstractIncomingRequest;
 
@@ -17,8 +16,6 @@ use Omnipay\MoMo\Message\AbstractIncomingRequest as BaseAbstractIncomingRequest;
  */
 abstract class AbstractIncomingRequest extends BaseAbstractIncomingRequest
 {
-    use AllInOneParameters;
-
     /**
      * {@inheritdoc}
      * @throws \Omnipay\Common\Exception\InvalidResponseException

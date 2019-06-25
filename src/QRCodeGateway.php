@@ -8,7 +8,7 @@
 namespace Omnipay\MoMo;
 
 use Omnipay\Common\AbstractGateway;
-use Omnipay\MoMo\Message\PayConfirmResponse;
+use Omnipay\MoMo\Message\PayConfirmRequest;
 use Omnipay\MoMo\Message\QRCode\NotificationRequest;
 
 /**
@@ -17,7 +17,7 @@ use Omnipay\MoMo\Message\QRCode\NotificationRequest;
  */
 class QRCodeGateway extends AbstractGateway
 {
-    use Concerns\QRCodeParameters;
+    use Concerns\Parameters;
 
     /**
      * {@inheritdoc}
@@ -42,10 +42,10 @@ class QRCodeGateway extends AbstractGateway
      * Tạo yêu cầu xác nhận hoàn thành hoặc hủy bỏ giao dịch đến MoMo.
      *
      * @param  array  $options
-     * @return \Omnipay\Common\Message\RequestInterface|PayConfirmResponse
+     * @return \Omnipay\Common\Message\RequestInterface|PayConfirmRequest
      */
-    public function payConfirm(array $options = []): PayConfirmResponse
+    public function payConfirm(array $options = []): PayConfirmRequest
     {
-        return $this->createRequest(PayConfirmResponse::class, $options);
+        return $this->createRequest(PayConfirmRequest::class, $options);
     }
 }

@@ -7,7 +7,6 @@
 
 namespace Omnipay\MoMo\Message\AllInOne;
 
-use Omnipay\MoMo\Concerns\AllInOneParameters;
 use Omnipay\MoMo\Message\AbstractSignatureRequest as BaseAbstractSignatureRequest;
 
 /**
@@ -16,14 +15,22 @@ use Omnipay\MoMo\Message\AbstractSignatureRequest as BaseAbstractSignatureReques
  */
 abstract class AbstractSignatureRequest extends BaseAbstractSignatureRequest
 {
-    use AllInOneParameters;
-
     /**
      * Trả về lớp đối tượng phản hồi tương ứng của Request.
      *
      * @var string
      */
     protected $responseClass;
+
+    /**
+     * Trả về id đơn hàng.
+     *
+     * @return null|string
+     */
+    public function getOrderId(): ?string
+    {
+        return $this->getParameter('orderId');
+    }
 
     /**
      * Thiết lập id đơn hàng.
@@ -33,6 +40,16 @@ abstract class AbstractSignatureRequest extends BaseAbstractSignatureRequest
     public function setOrderId(string $id): void
     {
         $this->setParameter('orderId', $id);
+    }
+
+    /**
+     * Trả về request id.
+     *
+     * @return null|string
+     */
+    public function getRequestId(): ?string
+    {
+        return $this->getParameter('requestId');
     }
 
     /**

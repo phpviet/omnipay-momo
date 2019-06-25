@@ -7,8 +7,6 @@
 
 namespace Omnipay\MoMo\Message;
 
-use Omnipay\Common\Message\AbstractRequest;
-
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
@@ -26,7 +24,7 @@ abstract class AbstractHashRequest extends AbstractRequest
         $parameters = $this->getParameters();
         call_user_func_array([$this, 'validate'], $this->getHashParameters());
         $parameters['hash'] = $this->generateHash();
-        unset($parameters['secretKey'], $parameters['testMode'], $parameters['publicKey']);
+        unset($parameters['testMode'], $parameters['publicKey'], $parameters['secretKey']);
 
         return $parameters;
     }

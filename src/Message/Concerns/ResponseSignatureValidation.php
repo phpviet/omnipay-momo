@@ -7,6 +7,7 @@
 
 namespace Omnipay\MoMo\Message\Concerns;
 
+use Omnipay\MoMo\Support\Arr;
 use Omnipay\MoMo\Support\Signature;
 use Omnipay\Common\Exception\InvalidResponseException;
 
@@ -27,8 +28,12 @@ trait ResponseSignatureValidation
         $requestParameters = $this->getRequest()->getParameters();
         $signature = new Signature($requestParameters['secretKey']);
 
-        foreach ($this->getSignatureParameters() as $param) {
-            $data[$param] = $this->data[$param];
+        foreach ($this->getSignatureParameters() as $pos => $parameter) {
+            if (! is_string($pos)) {
+                $pos = $parameter;
+            }
+
+            $data[$pos] = Arr::getValue($parameter, $this->data);
         }
 
         if (! $signature->validate($data, $this->data['signature'])) {

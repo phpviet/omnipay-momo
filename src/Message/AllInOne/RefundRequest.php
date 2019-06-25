@@ -21,6 +21,32 @@ class RefundRequest extends AbstractSignatureRequest
     protected $responseClass = RefundResponse::class;
 
     /**
+     * {@inheritdoc}
+     */
+    public function getTransactionId(): ?string
+    {
+        return $this->getTransId();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function setTransactionId($value): void
+    {
+        $this->setTransId($value);
+    }
+
+    /**
+     * Trả về mã giao dịch của MoMo.
+     *
+     * @return null|string
+     */
+    public function getTransId(): ?string
+    {
+        return $this->getParameter('transId');
+    }
+
+    /**
      * Thiết lập mã giao dịch của MoMo.
      *
      * @param  string  $id

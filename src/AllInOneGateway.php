@@ -23,7 +23,7 @@ use Omnipay\MoMo\Message\AllInOne\CompletePurchaseRequest;
  */
 class AllInOneGateway extends AbstractGateway
 {
-    use Concerns\AllInOneParameters;
+    use Concerns\Parameters;
 
     /**
      * {@inheritdoc}

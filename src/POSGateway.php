@@ -8,7 +8,7 @@
 namespace Omnipay\MoMo;
 
 use Omnipay\Common\AbstractGateway;
-use Omnipay\MoMo\Message\PayConfirmResponse;
+use Omnipay\MoMo\Message\PayConfirmRequest;
 use Omnipay\MoMo\Message\POS\PurchaseRequest;
 
 /**
@@ -17,7 +17,7 @@ use Omnipay\MoMo\Message\POS\PurchaseRequest;
  */
 class POSGateway extends AbstractGateway
 {
-    use Concerns\POSParameters;
+    use Concerns\Parameters;
 
     /**
      * {@inheritdoc}
@@ -25,16 +25,6 @@ class POSGateway extends AbstractGateway
     public function getName(): string
     {
         return 'MoMo POS';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getDefaultParameters(): array
-    {
-        return [
-            'version' => '2.0',
-        ];
     }
 
     /**
@@ -50,10 +40,10 @@ class POSGateway extends AbstractGateway
      * Tạo yêu cầu xác nhận hoàn thành hoặc hủy bỏ giao dịch đến MoMo.
      *
      * @param  array  $options
-     * @return \Omnipay\Common\Message\RequestInterface|PayConfirmResponse
+     * @return \Omnipay\Common\Message\RequestInterface|PayConfirmRequest
      */
-    public function payConfirm(array $options = []): PayConfirmResponse
+    public function payConfirm(array $options = []): PayConfirmRequest
     {
-        return $this->createRequest(PayConfirmResponse::class, $options);
+        return $this->createRequest(PayConfirmRequest::class, $options);
     }
 }

@@ -19,10 +19,6 @@ use Omnipay\MoMo\Message\AllInOne\CompletePurchaseRequest;
  */
 class AllInOneGatewayTest extends GatewayTestCase
 {
-    /**
-     * @var \Symfony\Component\HttpFoundation\ParameterBag
-     */
-    protected $request;
 
     protected function setUp()
     {

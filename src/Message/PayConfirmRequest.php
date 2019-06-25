@@ -22,6 +22,16 @@ class PayConfirmRequest extends AbstractSignatureRequest
     use Parameters;
 
     /**
+     * Trả về request id.
+     *
+     * @return null|string
+     */
+    public function getRequestId(): ?string
+    {
+        return $this->getParameter('requestId');
+    }
+
+    /**
      * Thiết lập request id của đơn hàng.
      *
      * @param  string  $id
@@ -29,6 +39,16 @@ class PayConfirmRequest extends AbstractSignatureRequest
     public function setRequestId(string $id): void
     {
         $this->setParameter('requestId', $id);
+    }
+
+    /**
+     * Trả về mã đơn hàng.
+     *
+     * @return null|string
+     */
+    public function getPartnerRefId(): ?string
+    {
+        return $this->getParameter('partnerRefId');
     }
 
     /**
@@ -42,6 +62,16 @@ class PayConfirmRequest extends AbstractSignatureRequest
     }
 
     /**
+     * Trả về mã đơn hàng của MoMo.
+     *
+     * @return null|string
+     */
+    public function getMomoTransId(): ?string
+    {
+        return $this->getParameter('momoTransId');
+    }
+
+    /**
      * Thiết lập mã giao dịch của MoMo.
      *
      * @param  string  $id
@@ -52,6 +82,16 @@ class PayConfirmRequest extends AbstractSignatureRequest
     }
 
     /**
+     * Trả về só điện thoại của khách hàng.
+     *
+     * @return null|string
+     */
+    public function getCustomerNumber(): ?string
+    {
+        return $this->getParameter('customerNumber');
+    }
+
+    /**
      * Thiết lập số điện thoại khách hàng.
      *
      * @param  string  $number
@@ -59,6 +99,16 @@ class PayConfirmRequest extends AbstractSignatureRequest
     public function setCustomerNumber(string $number): void
     {
         $this->setParameter('customerNumber', $number);
+    }
+
+    /**
+     * Trả về loại request yêu cầu MoMo xử lý.
+     *
+     * @return null|string
+     */
+    public function getRequestType(): ?string
+    {
+        return $this->getParameter('requestType');
     }
 
     /**

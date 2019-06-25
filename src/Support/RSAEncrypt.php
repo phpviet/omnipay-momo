@@ -41,6 +41,6 @@ class RSAEncrypt
         $data = json_encode($data);
         openssl_public_encrypt($data, $dataEncrypted, $this->publicKey, OPENSSL_PKCS1_PADDING);
 
-        return $dataEncrypted;
+        return base64_encode($dataEncrypted);
     }
 }
