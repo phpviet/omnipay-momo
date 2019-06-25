@@ -11,7 +11,7 @@ namespace Omnipay\MoMo\Concerns;
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-trait PosParameters
+trait POSParameters
 {
     use Parameters;
 

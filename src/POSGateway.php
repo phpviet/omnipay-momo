@@ -9,24 +9,23 @@ namespace Omnipay\MoMo;
 
 use Omnipay\Common\AbstractGateway;
 use Omnipay\MoMo\Message\PayConfirmResponse;
-use Omnipay\MoMo\Message\AppInApp\PurchaseRequest;
+use Omnipay\MoMo\Message\POS\PurchaseRequest;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class AppInAppGateway extends AbstractGateway
+class POSGateway extends AbstractGateway
 {
-    use Concerns\AppInAppParameters;
+    use Concerns\POSParameters;
 
     /**
      * {@inheritdoc}
      */
     public function getName(): string
     {
-        return 'MoMo AIA';
+        return 'MoMo POS';
     }
-
 
     /**
      * {@inheritdoc}

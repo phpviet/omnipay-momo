@@ -30,7 +30,7 @@ class AllInOneGateway extends AbstractGateway
      */
     public function getName(): string
     {
-        return 'MoMo';
+        return 'MoMo AIO';
     }
 
     /**

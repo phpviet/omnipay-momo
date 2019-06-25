@@ -5,9 +5,9 @@
  * @license [MIT](http://www.opensource.org/licenses/MIT)
  */
 
-namespace Omnipay\MoMo\Message\Pos;
+namespace Omnipay\MoMo\Message\POS;
 
-use Omnipay\MoMo\Concerns\PosParameters;
+use Omnipay\MoMo\Concerns\POSParameters;
 use Omnipay\MoMo\Message\AbstractHashRequest;
 
 /**
@@ -16,7 +16,34 @@ use Omnipay\MoMo\Message\AbstractHashRequest;
  */
 class PurchaseRequest extends AbstractHashRequest
 {
-    use PosParameters;
+    use POSParameters;
+
+    /**
+     * {@inheritdoc}
+     * @throws \Omnipay\Common\Exception\InvalidRequestException
+     */
+    public function getData(): array
+    {
+        $this->validate('paymentCode');
+        $this->setParameter('payType', 3);
+        $parameters = parent::getData();
+        unset($parameters['paymentCode']);
+
+        return $parameters;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function sendData($data): PurchaseResponse
+    {
+        $response = $this->httpClient->request('POST', $this->getEndpoint().'/pay/pos', [
+            'Content-Type' => 'application/json; charset=utf-8',
+        ], json_encode($data));
+        $responseData = $response->getBody()->getContents();
+
+        return $this->response = new PurchaseResponse($this, json_decode($responseData, true) ?? []);
+    }
 
     /**
      * Thiết lập mã cửa hàng.
@@ -56,33 +83,6 @@ class PurchaseRequest extends AbstractHashRequest
     public function setPaymentCode(string $code): void
     {
         $this->setParameter('paymentCode', $code);
-    }
-
-    /**
-     * {@inheritdoc}
-     * @throws \Omnipay\Common\Exception\InvalidRequestException
-     */
-    public function getData(): array
-    {
-        $this->validate('paymentCode');
-        $this->setParameter('payType', 3);
-        $parameters = parent::getData();
-        unset($parameters['paymentCode']);
-
-        return $parameters;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function sendData($data): PurchaseResponse
-    {
-        $response = $this->httpClient->request('POST', $this->getEndpoint().'/pay/pos', [
-            'Content-Type' => 'application/json; charset=utf-8',
-        ], json_encode($data));
-        $responseData = $response->getBody()->getContents();
-
-        return $this->response = new PurchaseResponse($this, json_decode($responseData, true) ?? []);
     }
 
     /**

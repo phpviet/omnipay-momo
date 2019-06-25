@@ -9,33 +9,33 @@ namespace Omnipay\MoMo;
 
 use Omnipay\Common\AbstractGateway;
 use Omnipay\MoMo\Message\PayConfirmResponse;
-use Omnipay\MoMo\Message\Pos\PurchaseRequest;
+use Omnipay\MoMo\Message\QRCode\NotificationRequest;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class PosGateway extends AbstractGateway
+class QRCodeGateway extends AbstractGateway
 {
-    use Concerns\PosParameters;
+    use Concerns\QRCodeParameters;
 
     /**
      * {@inheritdoc}
      */
-    public function getDefaultParameters(): array
+    public function getName(): string
     {
-        return [
-            'version' => '2.0',
-        ];
+        return 'MoMo QRCode';
     }
 
     /**
-     * {@inheritdoc}
-     * @return \Omnipay\Common\Message\RequestInterface|PurchaseRequest
+     * Tạo request notification gửi từ MoMo.
+     *
+     * @param  array  $options
+     * @return \Omnipay\Common\Message\RequestInterface|NotificationRequest
      */
-    public function purchase(array $options = []): PurchaseRequest
+    public function notification(array $options = []): NotificationRequest
     {
-        return $this->createRequest(PurchaseRequest::class, $options);
+        return $this->createRequest(NotificationRequest::class, $options);
     }
 
     /**
