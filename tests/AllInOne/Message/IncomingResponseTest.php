@@ -33,7 +33,7 @@ class IncomingResponseTest extends TestCase
         $response = new IncomingResponse(
             $request,
             [
-                'test' => 321
+                'test' => 321,
             ]
         );
 

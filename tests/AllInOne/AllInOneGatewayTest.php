@@ -7,10 +7,10 @@
 
 namespace Omnipay\MoMo\Tests\AllInOne;
 
-use Omnipay\MoMo\Message\AllInOne\NotificationRequest;
 use Omnipay\Omnipay;
 use Omnipay\Tests\GatewayTestCase;
 use Omnipay\Common\Exception\InvalidRequestException;
+use Omnipay\MoMo\Message\AllInOne\NotificationRequest;
 use Omnipay\MoMo\Message\AllInOne\CompletePurchaseRequest;
 
 /**
@@ -19,7 +19,6 @@ use Omnipay\MoMo\Message\AllInOne\CompletePurchaseRequest;
  */
 class AllInOneGatewayTest extends GatewayTestCase
 {
-
     protected function setUp()
     {
         $this->gateway = Omnipay::create('MoMo_AllInOne', $this->getHttpClient(), $this->getHttpRequest());

@@ -51,11 +51,11 @@ RGWWiGSY1U4lWVeTGq2suCNcMZdgDMbbIaSEJJRQTksCAwEAAQ==
     {
         $this->setMockHttpResponse('PayConfirm.txt');
         $response = $this->gateway->payConfirm([
-            "partnerRefId" => "Merchant123556666",
-            "requestType" => "capture",
-            "requestId" => "1512529262248",
-            "momoTransId" => "12436514111",
-            "customerNumber" => "0963181714",
+            'partnerRefId' => 'Merchant123556666',
+            'requestType' => 'capture',
+            'requestId' => '1512529262248',
+            'momoTransId' => '12436514111',
+            'customerNumber' => '0963181714',
         ])->send();
 
         $this->assertTrue($response->isSuccessful());
@@ -66,11 +66,11 @@ RGWWiGSY1U4lWVeTGq2suCNcMZdgDMbbIaSEJJRQTksCAwEAAQ==
     {
         $this->setMockHttpResponse('Refund.txt');
         $response = $this->gateway->refund([
-            "partnerRefId" => "Merchant123556666",
-            "requestType" => "capture",
-            "requestId" => "1512529262248",
-            "momoTransId" => "12436514111",
-            "amount" => 30000
+            'partnerRefId' => 'Merchant123556666',
+            'requestType' => 'capture',
+            'requestId' => '1512529262248',
+            'momoTransId' => '12436514111',
+            'amount' => 30000,
         ])->send();
 
         $this->assertTrue($response->isSuccessful());
@@ -81,9 +81,9 @@ RGWWiGSY1U4lWVeTGq2suCNcMZdgDMbbIaSEJJRQTksCAwEAAQ==
     {
         $this->setMockHttpResponse('QueryTransaction.txt');
         $response = $this->gateway->queryTransaction([
-            "partnerRefId" => "Merchant123556666",
-            "requestId" => "1512529262248",
-            "momoTransId" => "12436514111",
+            'partnerRefId' => 'Merchant123556666',
+            'requestId' => '1512529262248',
+            'momoTransId' => '12436514111',
         ])->send();
 
         $this->assertTrue($response->isSuccessful());

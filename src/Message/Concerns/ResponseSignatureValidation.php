@@ -37,7 +37,6 @@ trait ResponseSignatureValidation
         }
 
         if (! $signature->validate($data, $this->data['signature'])) {
-
             throw new InvalidResponseException(sprintf('Data signature response from MoMo is invalid!'));
         }
     }
