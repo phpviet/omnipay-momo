@@ -12,8 +12,8 @@ use Omnipay\MoMo\Message\AllInOne\RefundRequest;
 use Omnipay\MoMo\Message\AllInOne\PurchaseRequest;
 use Omnipay\MoMo\Message\AllInOne\QueryRefundRequest;
 use Omnipay\MoMo\Message\AllInOne\NotificationRequest;
-use Omnipay\MoMo\Message\AllInOne\QueryTransactionRequest;
 use Omnipay\MoMo\Message\AllInOne\CompletePurchaseRequest;
+use Omnipay\MoMo\Message\AllInOne\QueryTransactionRequest;
 
 /**
  * @link https://developers.momo.vn/#/docs/aio/

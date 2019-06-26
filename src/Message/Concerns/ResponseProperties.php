@@ -26,7 +26,7 @@ trait ResponseProperties
         } else {
             trigger_error(sprintf('Undefined property: %s::%s', __CLASS__, '$'.$name), E_USER_NOTICE);
 
-            return null;
+            return;
         }
     }
 
