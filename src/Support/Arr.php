@@ -10,7 +10,7 @@ namespace Omnipay\MoMo\Support;
 class Arr
 {
     /**
-     * Hổ trợ lấy giá trị trong mảng với định dạng 'a.b.c'
+     * Hổ trợ lấy giá trị trong mảng với định dạng 'a.b.c'.
      *
      * @param  mixed  $element
      * @param  array  $arr

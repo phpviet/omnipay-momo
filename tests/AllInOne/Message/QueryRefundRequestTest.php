@@ -7,8 +7,8 @@
 
 namespace Omnipay\MoMo\Tests\AllInOne\Message;
 
-use Omnipay\MoMo\Message\AllInOne\QueryRefundRequest;
 use Omnipay\Tests\TestCase;
+use Omnipay\MoMo\Message\AllInOne\QueryRefundRequest;
 
 /**
  * @author Vuong Minh <vuongxuongminh@gmail.com>
