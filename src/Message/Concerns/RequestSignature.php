@@ -25,13 +25,14 @@ trait RequestSignature
     {
         $data = [];
         $signature = new Signature($this->getParameter('secretKey'));
+        $parameters = $this->getParameters();
 
         foreach ($this->getSignatureParameters() as $pos => $parameter) {
             if (! is_string($pos)) {
                 $pos = $parameter;
             }
 
-            $data[$pos] = $this->getParameter($parameter);
+            $data[$pos] = Arr::getValue($parameter, $parameters);
         }
 
         return $signature->generate($data);
