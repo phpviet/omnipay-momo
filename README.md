@@ -47,4 +47,4 @@ hoặc nếu bạn muốn sử dụng không dựa trên framework thì tiếp t
 Nếu như bạn cảm thấy thư viện chúng tôi còn thiếu sót hoặc sai sót và bạn muốn đóng góp để phát triển chung, 
 chúng tôi rất hoan nghênh! Hãy tạo các `issue` để đóng góp ý tưởng cho phiên bản kế tiếp hoặc tạo `PR` 
 để đóng góp phần thiếu sót hoặc sai sót. Riêng đối với các lỗi liên quan đến bảo mật thì phiền bạn gửi email đến
-vuongxuonginh@gmail.com thay vì tạo issue. Cảm ơn!
+vuongxuongminh@gmail.com thay vì tạo issue. Cảm ơn!
