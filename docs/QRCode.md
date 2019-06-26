@@ -61,6 +61,52 @@ if ($response->isSuccessful()) {
 
 Kham khảo thêm các tham trị khi tạo yêu cầu và MoMo trả về tại [đây](https://developers.momo.vn/#/docs/qr_payment?id=x%c3%a1c-nh%e1%ba%adn-giao-d%e1%bb%8bch).
 
+## Kiểm tra trạng thái giao dịch:
+
+```php
+$response = $gateway->queryTransaction([
+       'partnerRefId' => '123',
+       'requestId' => '456',
+])->send();
+
+if ($response->isSuccessful()) {
+    // TODO: xử lý kết quả.
+    print $response->data['amount'];
+    
+    var_dump($response->getData()); // toàn bộ data do MoMo gửi về.
+    
+} else {
+
+    print $response->getMessage();
+}
+```
+
+Kham khảo thêm các tham trị khi tạo yêu cầu và MoMo trả về tại [đây](https://developers.momo.vn/#/docs/query_status?id=tra-c%e1%bb%a9u-giao-d%e1%bb%8bch).
+
+## Yêu cầu hoàn tiền:
+
+```php
+$response = $gateway->refund([
+    'partnerRefId' => '123',
+    'requestId' => '999',
+    'momoTransId' => 321,
+    'amount' => 50000,
+])->send();
+
+if ($response->isSuccessful()) {
+    // TODO: xử lý kết quả.
+    print $response->amount;
+    
+    var_dump($response->getData()); // toàn bộ data do MoMo gửi về.
+    
+} else {
+
+    print $response->getMessage();
+}
+```
+
+Kham khảo thêm các tham trị khi tạo yêu cầu và MoMo trả về tại [đây](https://developers.momo.vn/#/docs/refund?id=ho%c3%a0n-ti%e1%bb%81n-giao-d%e1%bb%8bch).
+
 ## Phương thức hổ trợ debug:
 
 Một số phương thức chung hổ trợ debug khi `isSuccessful()` trả về `FALSE`:
@@ -70,4 +116,4 @@ Một số phương thức chung hổ trợ debug khi `isSuccessful()` trả v�
     print $response->getMessage(); // câu thông báo lỗi do MoMo gửi sang.
 ```
 
-Kham khảo bảng báo lỗi `getCode()` chi tiết tại [đây](https://developers.momo.vn/#/docs/aio/?id=b%e1%ba%a3ng-m%c3%a3-l%e1%bb%97i).
+Kham khảo bảng báo lỗi `getCode()` chi tiết tại [đây](https://developers.momo.vn/#/docs/error_code?id=c%c3%a1c-m%c3%a3-l%e1%bb%97i-th%c6%b0%e1%bb%9dng-g%e1%ba%b7p).
