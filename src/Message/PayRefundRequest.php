@@ -8,27 +8,32 @@
 namespace Omnipay\MoMo\Message;
 
 /**
- * @link https://developers.momo.vn/#/docs/pos_payment?id=x%c3%a1c-nh%e1%ba%adn-giao-d%e1%bb%8bch
- * @link https://developers.momo.vn/#/docs/qr_payment?id=x%c3%a1c-nh%e1%ba%adn-giao-d%e1%bb%8bch
- * @link https://developers.momo.vn/#/docs/app_in_app?id=x%c3%a1c-nh%e1%ba%adn-giao-d%e1%bb%8bch
- *
  * @author Vuong Minh <vuongxuongminh@gmail.com>
  * @since 1.0.0
  */
-class PayConfirmRequest extends AbstractSignatureRequest
+class PayRefundRequest extends AbstractHashRequest
 {
     /**
      * {@inheritdoc}
-     * @throws \Omnipay\Common\Exception\InvalidResponseException
      */
-    public function sendData($data): PayConfirmResponse
+    public function getData(): array
     {
-        $response = $this->httpClient->request('POST', $this->getEndpoint().'/pay/confirm', [
+        $this->setParameter('version', 2);
+
+        return parent::getData();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function sendData($data)
+    {
+        $response = $this->httpClient->request('POST', $this->getEndpoint().'/pay/refund', [
             'Content-Type' => 'application/json; charset=utf-8',
         ], json_encode($data));
         $responseData = $response->getBody()->getContents();
 
-        return $this->response = new PayConfirmResponse($this, json_decode($responseData, true) ?? []);
+        return $this->response = new PayRefundResponse($this, json_decode($responseData, true) ?? []);
     }
 
     /**
@@ -92,50 +97,42 @@ class PayConfirmRequest extends AbstractSignatureRequest
     }
 
     /**
-     * Trả về só điện thoại của khách hàng.
+     * Trả về mã cửa hàng.
      *
      * @return null|string
      */
-    public function getCustomerNumber(): ?string
+    public function getStoreId(): ?string
     {
-        return $this->getParameter('customerNumber');
+        return $this->getParameter('storeId');
     }
 
     /**
-     * Thiết lập số điện thoại khách hàng.
+     * Thiết lập mã cửa hàng.
      *
-     * @param  string  $number
+     * @param  string  $id
      */
-    public function setCustomerNumber(string $number): void
+    public function setStoreId(string $id): void
     {
-        $this->setParameter('customerNumber', $number);
-    }
-
-    /**
-     * Trả về loại request yêu cầu MoMo xử lý.
-     *
-     * @return null|string
-     */
-    public function getRequestType(): ?string
-    {
-        return $this->getParameter('requestType');
-    }
-
-    /**
-     * Thiết lập loại request type yêu cầu MoMo, commit hoặc rollback.
-     *
-     * @param  string  $type
-     */
-    public function setRequestType(string $type): void
-    {
-        $this->setParameter('requestType', $type);
+        $this->setParameter('storeId', $id);
     }
 
     /**
      * {@inheritdoc}
      */
-    protected function getSignatureParameters(): array
+    protected function getHashParameters(): array
     {
-        return ['partnerCode', 'partnerRefId', 'requestType', 'requestId', 'momoTransId'];
+        $parameters = [
+            'partnerCode', 'partnerRefId', 'momoTransId', 'amount',
+        ];
+
+        if ($this->getParameter('storeId')) {
+            $parameters[] = 'storeId';
+        }
+
+        if ($this->getParameter('description')) {
+            $parameters[] = 'description';
+        }
+
+        return $parameters;
     }
 }

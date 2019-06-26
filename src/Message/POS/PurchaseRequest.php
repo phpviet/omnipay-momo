@@ -44,7 +44,7 @@ class PurchaseRequest extends AbstractHashRequest
     }
 
     /**
-     * Trả về store id.
+     * Trả về mã cửa hàng.
      *
      * @return null|string
      */
