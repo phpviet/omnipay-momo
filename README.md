@@ -25,3 +25,25 @@ Cài đặt Omnipay MoMo thông qua [Composer](https://getcomposer.org):
 ```bash
 composer require phpviet/omnipay-momo
 ```
+## Cách sử dụng
+
+### Tích hợp sẵn trên các framework phổ biến hiện tại
+
+- [`Laravel`](https://github.com/phpviet/laravel-omnipay)
+- [`Symfony`](https://github.com/phpviet/symfony-omnipay)
+- [`Yii`](https://github.com/phpviet/yii-omnipay)
+
+hoặc nếu bạn muốn sử dụng không dựa trên framework thì tiếp tục xem tiếp.
+
+### Cách sử dụng các gateway
+
+- [`All In One`](docs/AllInOne.md)
+- [`App In App`](docs/AppInApp.md)
+- [`POS`](docs/POS.md)
+- [`QRCode`](docs/QRCode.md)
+
+## Dành cho nhà phát triển
+
+Nếu như bạn cảm thấy thư viện chúng tôi còn thiếu sót hoặc sai sót và bạn muốn đóng góp để phát triển chung, 
+chúng tôi rất hoan nghênh! Hãy tạo các `issue` để đóng góp ý tưởng cho phiên bản kế tiếp hoặc tạo `PR` 
+để đóng góp phần thiếu sót hoặc sai sót. Cảm ơn!
