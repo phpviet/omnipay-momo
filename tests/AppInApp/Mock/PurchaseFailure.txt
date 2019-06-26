@@ -10,4 +10,4 @@ X-Kong-Proxy-Latency: 1
 Via: kong/0.14.1
 Strict-Transport-Security: max-age=15768000
 
-{"status":0,"message":"Th\u00e0nh c\u00f4ng","amount":40000,"transid":"43121679","signature":"a55801bf4657fe8bbf708a56c9776c067bbd14fee5c69a2225bfd97a479bcc42"}
+{"status":99,"message":"Th\u1ea5t b\u1ea1i","amount":10000}

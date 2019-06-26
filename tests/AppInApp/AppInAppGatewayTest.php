@@ -34,15 +34,30 @@ RGWWiGSY1U4lWVeTGq2suCNcMZdgDMbbIaSEJJRQTksCAwEAAQ==
         parent::setUp();
     }
 
-    public function testPurchase()
+    public function testPurchaseSuccess()
     {
         $this->setMockHttpResponse('PurchaseSuccess.txt');
-        $this->gateway->purchase([
+        $response = $this->gateway->purchase([
             'customerNumber' => '0909113911',
             'appData' => 'holo',
             'partnerRefId' => 99,
-            'amount' => 50000,
+            'amount' => 40000,
         ])->send();
+        $this->assertTrue($response->isSuccessful());
+        $this->assertEquals(40000, $response->amount);
+    }
+
+    public function testPurchaseFailure()
+    {
+        $this->setMockHttpResponse('PurchaseFailure.txt');
+        $response = $this->gateway->purchase([
+            'customerNumber' => '0909113911',
+            'appData' => 'holo',
+            'partnerRefId' => 99,
+            'amount' => 10000,
+        ])->send();
+        $this->assertFalse($response->isSuccessful());
+        $this->assertEquals(10000, $response->amount);
     }
 
     /**
