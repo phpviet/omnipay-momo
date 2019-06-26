@@ -60,6 +60,48 @@ RGWWiGSY1U4lWVeTGq2suCNcMZdgDMbbIaSEJJRQTksCAwEAAQ==
         $this->assertEquals(10000, $response->amount);
     }
 
+    public function testPayConfirm()
+    {
+        $this->setMockHttpResponse('PayConfirm.txt');
+        $response = $this->gateway->payConfirm([
+            "partnerRefId" => "Merchant123556666",
+            "requestType" => "capture",
+            "requestId" => "1512529262248",
+            "momoTransId" => "12436514111",
+            "customerNumber" => "0963181714",
+        ])->send();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertEquals(30000, $response->data['amount']);
+    }
+
+    public function testRefund()
+    {
+        $this->setMockHttpResponse('Refund.txt');
+        $response = $this->gateway->refund([
+            "partnerRefId" => "Merchant123556666",
+            "requestType" => "capture",
+            "requestId" => "1512529262248",
+            "momoTransId" => "12436514111",
+            "amount" => 30000,
+        ])->send();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertEquals(30000, $response->amount);
+    }
+
+    public function testQueryTransaction()
+    {
+        $this->setMockHttpResponse('QueryTransaction.txt');
+        $response = $this->gateway->queryTransaction([
+            "partnerRefId" => "Merchant123556666",
+            "requestId" => "1512529262248",
+            "momoTransId" => "12436514111",
+        ])->send();
+
+        $this->assertTrue($response->isSuccessful());
+    }
+
     /**
      * @doesNotPerformAssertions
      */
