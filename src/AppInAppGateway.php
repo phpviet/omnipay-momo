@@ -8,7 +8,9 @@
 namespace Omnipay\MoMo;
 
 use Omnipay\Common\AbstractGateway;
+use Omnipay\MoMo\Message\PayRefundRequest;
 use Omnipay\MoMo\Message\PayConfirmRequest;
+use Omnipay\MoMo\Message\PayQueryStatusRequest;
 use Omnipay\MoMo\Message\AppInApp\PurchaseRequest;
 
 /**
@@ -45,5 +47,25 @@ class AppInAppGateway extends AbstractGateway
     public function payConfirm(array $options = []): PayConfirmRequest
     {
         return $this->createRequest(PayConfirmRequest::class, $options);
+    }
+
+    /**
+     * Tạo yêu cầu truy vấn thông tin giao dịch đến MoMo.
+     *
+     * @param  array  $options
+     * @return \Omnipay\Common\Message\RequestInterface|PayQueryStatusRequest
+     */
+    public function queryTransaction(array $options = []): PayQueryStatusRequest
+    {
+        return $this->createRequest(PayQueryStatusRequest::class, $options);
+    }
+
+    /**
+     * {@inheritdoc}
+     * @return \Omnipay\Common\Message\RequestInterface|PayRefundRequest
+     */
+    public function refund(array $options = [])
+    {
+        return $this->createRequest(PayRefundRequest::class, $options);
     }
 }

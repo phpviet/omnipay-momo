@@ -136,6 +136,8 @@ class PayConfirmRequest extends AbstractSignatureRequest
      */
     protected function getSignatureParameters(): array
     {
-        return ['partnerCode', 'partnerRefId', 'requestType', 'requestId', 'momoTransId'];
+        return [
+            'partnerCode', 'partnerRefId', 'requestType', 'requestId', 'momoTransId'
+        ];
     }
 }

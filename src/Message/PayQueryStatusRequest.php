@@ -102,7 +102,9 @@ class PayQueryStatusRequest extends AbstractHashRequest
      */
     protected function getHashParameters(): array
     {
-        $parameters = ['requestId', 'partnerCode', 'partnerRefId'];
+        $parameters = [
+            'requestId', 'partnerCode', 'partnerRefId',
+        ];
 
         if ($this->getParameter('momoTransId')) {
             $parameters[] = 'momoTransId';
