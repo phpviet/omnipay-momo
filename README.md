@@ -8,7 +8,7 @@
     <a href="https://packagist.org/packages/phpviet/omnipay-momo"><img src="https://img.shields.io/packagist/v/phpviet/omnipay-momo.svg?style=flat-square" alt="Latest version"></a>
     <a href="https://travis-ci.org/phpviet/omnipay-momo"><img src="https://img.shields.io/travis/phpviet/omnipay-momo/master.svg?style=flat-square" alt="Build status"></a>
     <a href="https://scrutinizer-ci.com/g/phpviet/omnipay-momo"><img src="https://img.shields.io/scrutinizer/g/phpviet/omnipay-momo.svg?style=flat-square" alt="Quantity score"></a>
-    <a href="https://styleci.io/repos/189439149"><img src="https://styleci.io/repos/189439149/shield?branch=master" alt="StyleCI"></a>
+    <a href="https://styleci.io/repos/189053576"><img src="https://styleci.io/repos/189053576/shield?branch=master" alt="StyleCI"></a>
     <a href="https://packagist.org/packages/phpviet/omnipay-momo"><img src="https://img.shields.io/packagist/dt/phpviet/omnipay-momo.svg?style=flat-square" alt="Total download"></a>
     <a href="https://packagist.org/packages/phpviet/omnipay-momo"><img src="https://img.shields.io/packagist/l/phpviet/omnipay-momo.svg?style=flat-square" alt="License"></a>
     </p>
