@@ -42,7 +42,7 @@ trait ResponseSignatureValidation
     }
 
     /**
-     * Trả về danh sách các param data đã dùng để tạo chữ ký dữ liệu theo requestType truyền vào.
+     * Trả về danh sách các param data đã dùng để tạo chữ ký dữ liệu.
      *
      * @return array
      */
