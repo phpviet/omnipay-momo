@@ -7,6 +7,7 @@
 
 namespace Omnipay\MoMo\Message\Concerns;
 
+use Omnipay\MoMo\Support\Arr;
 use Omnipay\MoMo\Support\RSAEncrypt;
 
 /**
@@ -24,9 +25,14 @@ trait RequestHash
     {
         $data = [];
         $rsa = new RSAEncrypt($this->getParameter('publicKey'));
+        $parameters = $this->getParameters();
 
-        foreach ($this->getHashParameters() as $parameter) {
-            $data[$parameter] = $this->getParameter($parameter);
+        foreach ($this->getHashParameters() as $pos => $parameter) {
+            if (! is_string($pos)) {
+                $pos = $parameter;
+            }
+
+            $data[$pos] = Arr::getValue($parameter, $parameters);
         }
 
         return $rsa->encrypt($data);
