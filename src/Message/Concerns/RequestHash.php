@@ -24,7 +24,9 @@ trait RequestHash
     protected function generateHash(): string
     {
         $data = [];
-        $rsa = new RSAEncrypt($this->getParameter('publicKey'));
+        $rsa = new RSAEncrypt(
+            $this->getPublicKey()
+        );
         $parameters = $this->getParameters();
 
         foreach ($this->getHashParameters() as $pos => $parameter) {

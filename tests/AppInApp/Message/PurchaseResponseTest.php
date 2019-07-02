@@ -30,9 +30,7 @@ class PurchaseResponseTest extends TestCase
     {
         $httpResponse = $this->getMockHttpResponse('PurchaseSuccess.txt');
         $request = $this->getMockRequest();
-        $request->shouldReceive('getParameters')->once()->andReturn([
-            'secretKey' => 'fj00YKnJhmYqahaFWUgkg75saNTzMrbO',
-        ]);
+        $request->shouldReceive('getSecretKey')->once()->andReturn('fj00YKnJhmYqahaFWUgkg75saNTzMrbO');
         $response = new PurchaseResponse(
             $request,
             json_decode($httpResponse->getBody()->getContents(), true)

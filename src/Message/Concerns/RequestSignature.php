@@ -24,7 +24,9 @@ trait RequestSignature
     protected function generateSignature(): string
     {
         $data = [];
-        $signature = new Signature($this->getParameter('secretKey'));
+        $signature = new Signature(
+            $this->getSecretKey()
+        );
         $parameters = $this->getParameters();
 
         foreach ($this->getSignatureParameters() as $pos => $parameter) {

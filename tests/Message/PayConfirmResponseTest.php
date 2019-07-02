@@ -30,9 +30,7 @@ class PayConfirmResponseTest extends TestCase
     {
         $httpResponse = $this->getMockHttpResponse('PayConfirmResponse.txt');
         $request = $this->getMockRequest();
-        $request->shouldReceive('getParameters')->once()->andReturn([
-            'secretKey' => 'fj00YKnJhmYqahaFWUgkg75saNTzMrbO',
-        ]);
+        $request->shouldReceive('getSecretKey')->once()->andReturn('fj00YKnJhmYqahaFWUgkg75saNTzMrbO');
         $response = new PayConfirmResponse(
             $request,
             json_decode($httpResponse->getBody()->getContents(), true)

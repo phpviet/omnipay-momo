@@ -29,9 +29,7 @@ class NotificationResponseTest extends TestCase
     public function testResponse()
     {
         $request = $this->getMockRequest();
-        $request->shouldReceive('getParameters')->once()->andReturn([
-            'secretKey' => 'fj00YKnJhmYqahaFWUgkg75saNTzMrbO',
-        ]);
+        $request->shouldReceive('getSecretKey')->once()->andReturn('fj00YKnJhmYqahaFWUgkg75saNTzMrbO');
         $response = new NotificationResponse(
             $request,
             [

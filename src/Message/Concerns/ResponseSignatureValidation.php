@@ -25,8 +25,9 @@ trait ResponseSignatureValidation
     protected function validateSignature(): void
     {
         $data = [];
-        $requestParameters = $this->getRequest()->getParameters();
-        $signature = new Signature($requestParameters['secretKey']);
+        $signature = new Signature(
+            $this->getRequest()->getSecretKey()
+        );
 
         foreach ($this->getSignatureParameters() as $pos => $parameter) {
             if (! is_string($pos)) {
