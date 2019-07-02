@@ -51,10 +51,11 @@ class PayQueryStatusRequest extends AbstractHashRequest
      * Thiết lập request id của đơn hàng.
      *
      * @param  string  $id
+     * @return self
      */
-    public function setRequestId(string $id): void
+    public function setRequestId(string $id): self
     {
-        $this->setParameter('requestId', $id);
+        return $this->setParameter('requestId', $id);
     }
 
     /**
@@ -71,10 +72,11 @@ class PayQueryStatusRequest extends AbstractHashRequest
      * Thiết lập mã đơn hàng.
      *
      * @param  string  $id
+     * @return self
      */
-    public function setPartnerRefId(string $id): void
+    public function setPartnerRefId(string $id): self
     {
-        $this->setParameter('partnerRefId', $id);
+        return $this->setParameter('partnerRefId', $id);
     }
 
     /**
@@ -91,10 +93,11 @@ class PayQueryStatusRequest extends AbstractHashRequest
      * Thiết lập mã giao dịch của MoMo.
      *
      * @param  string  $id
+     * @return self
      */
-    public function setMomoTransId(string $id): void
+    public function setMomoTransId(string $id): self
     {
-        $this->setParameter('momoTransId', $id);
+        return $this->setParameter('momoTransId', $id);
     }
 
     /**

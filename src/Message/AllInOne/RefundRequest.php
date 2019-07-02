@@ -31,9 +31,9 @@ class RefundRequest extends AbstractSignatureRequest
     /**
      * {@inheritdoc}
      */
-    public function setTransactionId($value): void
+    public function setTransactionId($value): self
     {
-        $this->setTransId($value);
+        return $this->setTransId($value);
     }
 
     /**
@@ -50,10 +50,11 @@ class RefundRequest extends AbstractSignatureRequest
      * Thiết lập mã giao dịch của MoMo.
      *
      * @param  string  $id
+     * @return self
      */
-    public function setTransId(string $id): void
+    public function setTransId(string $id): self
     {
-        $this->setParameter('transId', $id);
+        return $this->setParameter('transId', $id);
     }
 
     /**

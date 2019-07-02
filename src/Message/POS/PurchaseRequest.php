@@ -57,10 +57,11 @@ class PurchaseRequest extends AbstractHashRequest
      * Thiết lập mã cửa hàng.
      *
      * @param  string  $id
+     * @return self
      */
-    public function setStoreId(string $id): void
+    public function setStoreId(string $id): self
     {
-        $this->setParameter('storeId', $id);
+        return $this->setParameter('storeId', $id);
     }
 
     /**
@@ -77,10 +78,11 @@ class PurchaseRequest extends AbstractHashRequest
      * Thiết lập tên cửa hàng.
      *
      * @param  string  $name
+     * @return self
      */
-    public function setStoreName(string $name): void
+    public function setStoreName(string $name): self
     {
-        $this->setParameter('storeName', $name);
+        return $this->setParameter('storeName', $name);
     }
 
     /**
@@ -97,10 +99,11 @@ class PurchaseRequest extends AbstractHashRequest
      * Thiết lập mã đơn hàng.
      *
      * @param  string  $id
+     * @return self
      */
-    public function setPartnerRefId(string $id): void
+    public function setPartnerRefId(string $id): self
     {
-        $this->setParameter('partnerRefId', $id);
+        return $this->setParameter('partnerRefId', $id);
     }
 
     /**
@@ -117,10 +120,11 @@ class PurchaseRequest extends AbstractHashRequest
      * Thiết lập mã khách thanh toán.
      *
      * @param  string  $code
+     * @return self
      */
-    public function setPaymentCode(string $code): void
+    public function setPaymentCode(string $code): self
     {
-        $this->setParameter('paymentCode', $code);
+        return $this->setParameter('paymentCode', $code);
     }
 
     /**

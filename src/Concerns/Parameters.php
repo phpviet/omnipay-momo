@@ -27,10 +27,11 @@ trait Parameters
      * Thiết lập access key do MoMo cấp.
      *
      * @param  string  $key
+     * @return self
      */
-    public function setAccessKey(string $key): void
+    public function setAccessKey(string $key): self
     {
-        $this->setParameter('accessKey', $key);
+        return $this->setParameter('accessKey', $key);
     }
 
     /**
@@ -47,10 +48,11 @@ trait Parameters
      * Thiết lập secret key do MoMo cấp.
      *
      * @param  string  $key
+     * @return self
      */
-    public function setSecretKey(string $key): void
+    public function setSecretKey(string $key): self
     {
-        $this->setParameter('secretKey', $key);
+        return $this->setParameter('secretKey', $key);
     }
 
     /**
@@ -67,10 +69,11 @@ trait Parameters
      * Thiết lập partner code do MoMo cấp.
      *
      * @param  string  $code
+     * @return self
      */
-    public function setPartnerCode(string $code): void
+    public function setPartnerCode(string $code): self
     {
-        $this->setParameter('partnerCode', $code);
+        return $this->setParameter('partnerCode', $code);
     }
 
     /**
@@ -87,9 +90,10 @@ trait Parameters
      * Thiết lập public key do MoMo cấp.
      *
      * @param  string  $key
+     * @return self
      */
-    public function setPublicKey(string $key): void
+    public function setPublicKey(string $key): self
     {
-        $this->setParameter('publicKey', $key);
+        return $this->setParameter('publicKey', $key);
     }
 }

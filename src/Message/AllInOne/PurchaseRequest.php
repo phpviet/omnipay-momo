@@ -34,10 +34,11 @@ class PurchaseRequest extends AbstractSignatureRequest
      * Thiết lập dữ liệu kèm theo đơn hàng.
      *
      * @param  string  $data
+     * @return self
      */
-    public function setExtraData(string $data): void
+    public function setExtraData(string $data): self
     {
-        $this->setParameter('extraData', $data);
+        return $this->setParameter('extraData', $data);
     }
 
     /**
@@ -54,10 +55,11 @@ class PurchaseRequest extends AbstractSignatureRequest
      * Thiết lập thông tin đơn hàng.
      *
      * @param  string  $info
+     * @return self
      */
-    public function setOrderInfo(string $info): void
+    public function setOrderInfo(string $info): self
     {
-        $this->setParameter('orderInfo', $info);
+        return $this->setParameter('orderInfo', $info);
     }
 
     /**

@@ -45,10 +45,11 @@ class PayConfirmRequest extends AbstractSignatureRequest
      * Thiết lập request id của đơn hàng.
      *
      * @param  string  $id
+     * @return self
      */
-    public function setRequestId(string $id): void
+    public function setRequestId(string $id): self
     {
-        $this->setParameter('requestId', $id);
+        return $this->setParameter('requestId', $id);
     }
 
     /**
@@ -65,10 +66,11 @@ class PayConfirmRequest extends AbstractSignatureRequest
      * Thiết lập mã đơn hàng.
      *
      * @param  string  $id
+     * @return self
      */
-    public function setPartnerRefId(string $id): void
+    public function setPartnerRefId(string $id): self
     {
-        $this->setParameter('partnerRefId', $id);
+        return $this->setParameter('partnerRefId', $id);
     }
 
     /**
@@ -85,10 +87,11 @@ class PayConfirmRequest extends AbstractSignatureRequest
      * Thiết lập mã giao dịch của MoMo.
      *
      * @param  string  $id
+     * @return self
      */
-    public function setMomoTransId(string $id): void
+    public function setMomoTransId(string $id): self
     {
-        $this->setParameter('momoTransId', $id);
+        return $this->setParameter('momoTransId', $id);
     }
 
     /**
@@ -105,10 +108,11 @@ class PayConfirmRequest extends AbstractSignatureRequest
      * Thiết lập số điện thoại khách hàng.
      *
      * @param  string  $number
+     * @return self
      */
-    public function setCustomerNumber(string $number): void
+    public function setCustomerNumber(string $number): self
     {
-        $this->setParameter('customerNumber', $number);
+        return $this->setParameter('customerNumber', $number);
     }
 
     /**
@@ -125,10 +129,11 @@ class PayConfirmRequest extends AbstractSignatureRequest
      * Thiết lập loại request type yêu cầu MoMo, commit hoặc rollback.
      *
      * @param  string  $type
+     * @return self
      */
-    public function setRequestType(string $type): void
+    public function setRequestType(string $type): self
     {
-        $this->setParameter('requestType', $type);
+        return $this->setParameter('requestType', $type);
     }
 
     /**
