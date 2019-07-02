@@ -23,6 +23,17 @@ class RefundRequest extends AbstractSignatureRequest
     /**
      * {@inheritdoc}
      */
+    public function initialize(array $parameters = []): self
+    {
+        parent::initialize($parameters);
+        $this->setParameter('requestType', 'refundMoMoWallet');
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getTransactionId(): ?string
     {
         return $this->getTransId();
@@ -55,17 +66,6 @@ class RefundRequest extends AbstractSignatureRequest
     public function setTransId(string $id): self
     {
         return $this->setParameter('transId', $id);
-    }
-
-    /**
-     * {@inheritdoc}
-     * @throws \Omnipay\Common\Exception\InvalidRequestException
-     */
-    public function getData(): array
-    {
-        $this->setParameter('requestType', 'refundMoMoWallet');
-
-        return parent::getData();
     }
 
     /**

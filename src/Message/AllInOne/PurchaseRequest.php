@@ -21,6 +21,19 @@ class PurchaseRequest extends AbstractSignatureRequest
     protected $responseClass = PurchaseResponse::class;
 
     /**
+     * {@inheritdoc}
+     */
+    public function initialize(array $parameters = []): self
+    {
+        parent::initialize($parameters);
+        $this->setOrderInfo($this->getParameter('orderInfo') ?? '');
+        $this->setExtraData($this->getParameter('extraData') ?? '');
+        $this->setParameter('requestType', 'captureMoMoWallet');
+
+        return $this;
+    }
+
+    /**
      * Trả về extra data gửi đến MoMo.
      *
      * @return null|string
@@ -60,19 +73,6 @@ class PurchaseRequest extends AbstractSignatureRequest
     public function setOrderInfo(string $info): self
     {
         return $this->setParameter('orderInfo', $info);
-    }
-
-    /**
-     * {@inheritdoc}
-     * @throws \Omnipay\Common\Exception\InvalidRequestException
-     */
-    public function getData(): array
-    {
-        $this->setOrderInfo($this->getParameter('orderInfo') ?? '');
-        $this->setExtraData($this->getParameter('extraData') ?? '');
-        $this->setParameter('requestType', 'captureMoMoWallet');
-
-        return parent::getData();
     }
 
     /**

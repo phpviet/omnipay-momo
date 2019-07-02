@@ -15,13 +15,13 @@ class PayQueryStatusRequest extends AbstractHashRequest
 {
     /**
      * {@inheritdoc}
-     * @throws \Omnipay\Common\Exception\InvalidRequestException
      */
-    public function getData(): array
+    public function initialize(array $parameters = []): self
     {
+        parent::initialize($parameters);
         $this->setParameter('version', 2);
 
-        return parent::getData();
+        return $this;
     }
 
     /**

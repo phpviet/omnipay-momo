@@ -18,11 +18,21 @@ class PurchaseRequest extends AbstractHashRequest
     /**
      * {@inheritdoc}
      */
+    public function initialize(array $parameters = []): self
+    {
+        parent::initialize($parameters);
+        $this->setParameter('payType', 3);
+        $this->setParameter('version', 2);
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getData(): array
     {
         $this->validate('appData', 'customerNumber');
-        $this->setParameter('payType', 3);
-        $this->setParameter('version', 2);
 
         return parent::getData();
     }

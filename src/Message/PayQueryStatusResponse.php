@@ -32,7 +32,7 @@ class PayQueryStatusResponse extends AbstractResponse
     /**
      * {@inheritdoc}
      */
-    public function getTransactionReference()
+    public function getTransactionReference(): ?string
     {
         return $this->data['data']['transid'] ?? null;
     }

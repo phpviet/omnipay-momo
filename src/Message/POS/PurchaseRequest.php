@@ -17,13 +17,23 @@ class PurchaseRequest extends AbstractHashRequest
 {
     /**
      * {@inheritdoc}
+     */
+    public function initialize(array $parameters = []): self
+    {
+        parent::initialize($parameters);
+        $this->setParameter('payType', 3);
+        $this->setParameter('version', 2);
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
      * @throws \Omnipay\Common\Exception\InvalidRequestException
      */
     public function getData(): array
     {
         $this->validate('paymentCode');
-        $this->setParameter('payType', 3);
-        $this->setParameter('version', 2);
         $parameters = parent::getData();
         unset($parameters['paymentCode']);
 
