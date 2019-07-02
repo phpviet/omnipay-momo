@@ -45,7 +45,7 @@ class NotificationResponse extends AbstractSignatureResponse
     /**
      * {@inheritdoc}
      */
-    public function getTransactionReference()
+    public function getTransactionReference(): ?string
     {
         return $this->data['momoTransId'] ?? null;
     }

@@ -23,7 +23,7 @@ class QueryTransactionRequest extends AbstractSignatureRequest
     /**
      * {@inheritdoc}
      */
-    public function initialize(array $parameters = []): self
+    public function initialize(array $parameters = [])
     {
         parent::initialize($parameters);
         $this->setParameter('requestType', 'transactionStatus');

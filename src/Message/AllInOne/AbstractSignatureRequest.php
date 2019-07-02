@@ -36,9 +36,9 @@ abstract class AbstractSignatureRequest extends BaseAbstractSignatureRequest
      * Thiết lập id đơn hàng.
      *
      * @param  string  $id
-     * @return self
+     * @return $this
      */
-    public function setOrderId(string $id): self
+    public function setOrderId(string $id)
     {
         return $this->setParameter('orderId', $id);
     }
@@ -57,9 +57,9 @@ abstract class AbstractSignatureRequest extends BaseAbstractSignatureRequest
      * Thiết lập request id của đơn hàng.
      *
      * @param  string  $id
-     * @return self
+     * @return $this
      */
-    public function setRequestId(string $id): self
+    public function setRequestId(string $id)
     {
         return $this->setParameter('requestId', $id);
     }

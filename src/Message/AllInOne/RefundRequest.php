@@ -23,7 +23,7 @@ class RefundRequest extends AbstractSignatureRequest
     /**
      * {@inheritdoc}
      */
-    public function initialize(array $parameters = []): self
+    public function initialize(array $parameters = [])
     {
         parent::initialize($parameters);
         $this->setParameter('requestType', 'refundMoMoWallet');
@@ -42,7 +42,7 @@ class RefundRequest extends AbstractSignatureRequest
     /**
      * {@inheritdoc}
      */
-    public function setTransactionId($value): self
+    public function setTransactionId($value)
     {
         return $this->setTransId($value);
     }
@@ -61,9 +61,9 @@ class RefundRequest extends AbstractSignatureRequest
      * Thiết lập mã giao dịch của MoMo.
      *
      * @param  string  $id
-     * @return self
+     * @return $this
      */
-    public function setTransId(string $id): self
+    public function setTransId(string $id)
     {
         return $this->setParameter('transId', $id);
     }

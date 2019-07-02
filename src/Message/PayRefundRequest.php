@@ -16,7 +16,7 @@ class PayRefundRequest extends AbstractHashRequest
     /**
      * {@inheritdoc}
      */
-    public function initialize(array $parameters = []): self
+    public function initialize(array $parameters = [])
     {
         parent::initialize($parameters);
         $this->setParameter('version', 2);
@@ -51,9 +51,9 @@ class PayRefundRequest extends AbstractHashRequest
      * Thiết lập request id của đơn hàng.
      *
      * @param  string  $id
-     * @return self
+     * @return $this
      */
-    public function setRequestId(string $id): self
+    public function setRequestId(string $id)
     {
         return $this->setParameter('requestId', $id);
     }
@@ -72,9 +72,9 @@ class PayRefundRequest extends AbstractHashRequest
      * Thiết lập mã đơn hàng.
      *
      * @param  string  $id
-     * @return self
+     * @return $this
      */
-    public function setPartnerRefId(string $id): self
+    public function setPartnerRefId(string $id)
     {
         return $this->setParameter('partnerRefId', $id);
     }
@@ -93,9 +93,9 @@ class PayRefundRequest extends AbstractHashRequest
      * Thiết lập mã giao dịch của MoMo.
      *
      * @param  string  $id
-     * @return self
+     * @return $this
      */
-    public function setMomoTransId(string $id): self
+    public function setMomoTransId(string $id)
     {
         return $this->setParameter('momoTransId', $id);
     }
@@ -114,9 +114,9 @@ class PayRefundRequest extends AbstractHashRequest
      * Thiết lập mã cửa hàng.
      *
      * @param  string  $id
-     * @return self
+     * @return $this
      */
-    public function setStoreId(string $id): self
+    public function setStoreId(string $id)
     {
         return $this->setParameter('storeId', $id);
     }

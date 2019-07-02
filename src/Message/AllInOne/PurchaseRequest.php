@@ -23,7 +23,7 @@ class PurchaseRequest extends AbstractSignatureRequest
     /**
      * {@inheritdoc}
      */
-    public function initialize(array $parameters = []): self
+    public function initialize(array $parameters = [])
     {
         parent::initialize($parameters);
         $this->setOrderInfo($this->getParameter('orderInfo') ?? '');
@@ -47,9 +47,9 @@ class PurchaseRequest extends AbstractSignatureRequest
      * Thiết lập dữ liệu kèm theo đơn hàng.
      *
      * @param  string  $data
-     * @return self
+     * @return $this
      */
-    public function setExtraData(string $data): self
+    public function setExtraData(string $data)
     {
         return $this->setParameter('extraData', $data);
     }
@@ -68,9 +68,9 @@ class PurchaseRequest extends AbstractSignatureRequest
      * Thiết lập thông tin đơn hàng.
      *
      * @param  string  $info
-     * @return self
+     * @return $this
      */
-    public function setOrderInfo(string $info): self
+    public function setOrderInfo(string $info)
     {
         return $this->setParameter('orderInfo', $info);
     }

@@ -45,9 +45,9 @@ class PayConfirmRequest extends AbstractSignatureRequest
      * Thiết lập request id của đơn hàng.
      *
      * @param  string  $id
-     * @return self
+     * @return $this
      */
-    public function setRequestId(string $id): self
+    public function setRequestId(string $id)
     {
         return $this->setParameter('requestId', $id);
     }
@@ -66,9 +66,9 @@ class PayConfirmRequest extends AbstractSignatureRequest
      * Thiết lập mã đơn hàng.
      *
      * @param  string  $id
-     * @return self
+     * @return $this
      */
-    public function setPartnerRefId(string $id): self
+    public function setPartnerRefId(string $id)
     {
         return $this->setParameter('partnerRefId', $id);
     }
@@ -87,9 +87,9 @@ class PayConfirmRequest extends AbstractSignatureRequest
      * Thiết lập mã giao dịch của MoMo.
      *
      * @param  string  $id
-     * @return self
+     * @return $this
      */
-    public function setMomoTransId(string $id): self
+    public function setMomoTransId(string $id)
     {
         return $this->setParameter('momoTransId', $id);
     }
@@ -108,9 +108,9 @@ class PayConfirmRequest extends AbstractSignatureRequest
      * Thiết lập số điện thoại khách hàng.
      *
      * @param  string  $number
-     * @return self
+     * @return $this
      */
-    public function setCustomerNumber(string $number): self
+    public function setCustomerNumber(string $number)
     {
         return $this->setParameter('customerNumber', $number);
     }
@@ -129,9 +129,9 @@ class PayConfirmRequest extends AbstractSignatureRequest
      * Thiết lập loại request type yêu cầu MoMo, commit hoặc rollback.
      *
      * @param  string  $type
-     * @return self
+     * @return $this
      */
-    public function setRequestType(string $type): self
+    public function setRequestType(string $type)
     {
         return $this->setParameter('requestType', $type);
     }

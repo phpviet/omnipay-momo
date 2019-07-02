@@ -30,7 +30,7 @@ abstract class AbstractIncomingRequest extends AbstractRequest
     /**
      * {@inheritdoc}
      */
-    public function initialize(array $parameters = []): self
+    public function initialize(array $parameters = [])
     {
         parent::initialize($parameters);
 
