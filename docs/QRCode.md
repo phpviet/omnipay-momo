@@ -4,7 +4,7 @@ QRCode Gateway
 Để nắm sơ lược về khái niệm và cách sử dụng các **Omnipay** gateways bạn hãy truy cập vào [đây](https://omnipay.thephpleague.com/) 
 để kham khảo.
 
-## Khởi tạo gateway:
+### Khởi tạo gateway:
 
 ```php
 use Omnipay\Omnipay;
@@ -15,7 +15,7 @@ $gateway->setPartnerCode('Do MoMo cấp.');
 $gateway->setSecretKey('Do MoMo cấp.');
 ```
 
-## Kiểm tra thông tin `notifyUrl` do MoMo gửi sang:
+### Kiểm tra thông tin `notifyUrl` do MoMo gửi sang:
 
 ```php
 $response = $gateway->notification()->send();
@@ -36,7 +36,7 @@ if ($response->isSuccessful()) {
 
 Kham khảo thêm các tham trị khi MoMo gửi sang tại [đây](https://developers.momo.vn/#/docs/qr_payment?id=x%e1%bb%ad-l%c3%bd-thanh-to%c3%a1n).
 
-## Confirm giao dịch:
+### Confirm giao dịch:
 
 ```php
 $response = $gateway->payConfirm([
@@ -61,7 +61,7 @@ if ($response->isSuccessful()) {
 
 Kham khảo thêm các tham trị khi tạo yêu cầu và MoMo trả về tại [đây](https://developers.momo.vn/#/docs/qr_payment?id=x%c3%a1c-nh%e1%ba%adn-giao-d%e1%bb%8bch).
 
-## Kiểm tra trạng thái giao dịch:
+### Kiểm tra trạng thái giao dịch:
 
 ```php
 $response = $gateway->queryTransaction([
@@ -83,7 +83,7 @@ if ($response->isSuccessful()) {
 
 Kham khảo thêm các tham trị khi tạo yêu cầu và MoMo trả về tại [đây](https://developers.momo.vn/#/docs/query_status?id=tra-c%e1%bb%a9u-giao-d%e1%bb%8bch).
 
-## Yêu cầu hoàn tiền:
+### Yêu cầu hoàn tiền:
 
 ```php
 $response = $gateway->refund([
@@ -107,7 +107,7 @@ if ($response->isSuccessful()) {
 
 Kham khảo thêm các tham trị khi tạo yêu cầu và MoMo trả về tại [đây](https://developers.momo.vn/#/docs/refund?id=ho%c3%a0n-ti%e1%bb%81n-giao-d%e1%bb%8bch).
 
-## Phương thức hổ trợ debug:
+### Phương thức hổ trợ debug:
 
 Một số phương thức chung hổ trợ debug khi `isSuccessful()` trả về `FALSE`:
 

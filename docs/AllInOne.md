@@ -4,7 +4,7 @@ All In One Gateway
 Để nắm sơ lược về khái niệm và cách sử dụng các **Omnipay** gateways bạn hãy truy cập vào [đây](https://omnipay.thephpleague.com/) 
 để kham khảo.
 
-## Khởi tạo gateway:
+### Khởi tạo gateway:
 
 ```php
 use Omnipay\Omnipay;
@@ -17,7 +17,7 @@ $gateway->setSecretKey('Do MoMo cấp.');
 
 Gateway khởi tạo ở trên dùng để tạo các yêu cầu xử lý đến MoMo hoặc dùng để nhận yêu cầu do MoMo gửi đến.
 
-## Tạo yêu cầu thanh toán:
+### Tạo yêu cầu thanh toán:
 
 ```php
 $response = $gateway->purchase([
@@ -37,7 +37,7 @@ if ($response->isRedirect()) {
 
 Kham khảo thêm các tham trị khi tạo yêu cầu và MoMo trả về tại [đây](https://developers.momo.vn/#/docs/aio/?id=ph%c6%b0%c6%a1ng-th%e1%bb%a9c-thanh-to%c3%a1n).
 
-## Kiểm tra thông tin `returnUrl` khi khách được MoMo redirect về:
+### Kiểm tra thông tin `returnUrl` khi khách được MoMo redirect về:
 
 ```php
 $response = $gateway->completePurchase()->send();
@@ -57,7 +57,7 @@ if ($response->isSuccessful()) {
 
 Kham khảo thêm các tham trị khi MoMo trả về tại [đây](https://developers.momo.vn/#/docs/aio/?id=th%c3%b4ng-tin-tham-s%e1%bb%91).
 
-## Kiểm tra thông tin `notifyUrl` do MoMo gửi sang:
+### Kiểm tra thông tin `notifyUrl` do MoMo gửi sang:
 
 ```php
 $response = $gateway->notification()->send();
@@ -77,7 +77,7 @@ if ($response->isSuccessful()) {
 
 Kham khảo thêm các tham trị khi MoMo gửi sang tại [đây](https://developers.momo.vn/#/docs/aio/?id=th%c3%b4ng-tin-tham-s%e1%bb%91).
 
-## Kiểm tra trạng thái giao dịch:
+### Kiểm tra trạng thái giao dịch:
 
 ```php
 $response = $gateway->queryTransaction([
@@ -100,7 +100,7 @@ if ($response->isSuccessful()) {
 
 Kham khảo thêm các tham trị khi tạo yêu cầu và MoMo trả về tại [đây](https://developers.momo.vn/#/docs/aio/?id=ki%e1%bb%83m-tra-tr%e1%ba%a1ng-th%c3%a1i-giao-d%e1%bb%8bch).
 
-## Yêu cầu hoàn tiền:
+### Yêu cầu hoàn tiền:
 
 ```php
 $response = $gateway->refund([
@@ -125,7 +125,7 @@ if ($response->isSuccessful()) {
 
 Kham khảo thêm các tham trị khi tạo yêu cầu và MoMo trả về tại [đây](https://developers.momo.vn/#/docs/aio/?id=ho%c3%a0n-ti%e1%bb%81n-giao-d%e1%bb%8bch).
 
-## Kiểm tra trạng thái hoàn tiền:
+### Kiểm tra trạng thái hoàn tiền:
 
 ```php
 $response = $gateway->queryRefund([
@@ -148,7 +148,7 @@ if ($response->isSuccessful()) {
 
 Kham khảo thêm các tham trị khi tạo yêu cầu và MoMo trả về tại [đây](https://developers.momo.vn/#/docs/aio/?id=ki%e1%bb%83m-tra-tr%e1%ba%a1ng-th%c3%a1i-ho%c3%a0n-ti%e1%bb%81n).
 
-## Phương thức hổ trợ debug:
+### Phương thức hổ trợ debug:
 
 Một số phương thức chung hổ trợ debug khi `isSuccessful()` trả về `FALSE`:
 
