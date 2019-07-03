@@ -63,10 +63,10 @@ class PurchaseRequest extends AbstractHashRequest
     /**
      * Thiết app token từ app MoMo gửi sang.
      *
-     * @param  string  $appData
+     * @param  null|string  $appData
      * @return $this
      */
-    public function setAppData(string $appData)
+    public function setAppData(?string $appData)
     {
         return $this->setParameter('appData', $appData);
     }
@@ -84,10 +84,10 @@ class PurchaseRequest extends AbstractHashRequest
     /**
      * Thiết lập mã cửa hàng.
      *
-     * @param  string  $id
+     * @param  null|string  $id
      * @return $this
      */
-    public function setStoreId(string $id)
+    public function setStoreId(?string $id)
     {
         return $this->setParameter('storeId', $id);
     }
@@ -105,10 +105,10 @@ class PurchaseRequest extends AbstractHashRequest
     /**
      * Thiết lập tên cửa hàng.
      *
-     * @param  string  $name
+     * @param  null|string  $name
      * @return $this
      */
-    public function setStoreName(string $name)
+    public function setStoreName(?string $name)
     {
         return $this->setParameter('storeName', $name);
     }
@@ -126,10 +126,10 @@ class PurchaseRequest extends AbstractHashRequest
     /**
      * Thiết lập mã đơn hàng.
      *
-     * @param  string  $id
+     * @param  null|string  $id
      * @return $this
      */
-    public function setPartnerRefId(string $id)
+    public function setPartnerRefId(?string $id)
     {
         return $this->setParameter('partnerRefId', $id);
     }
@@ -147,10 +147,10 @@ class PurchaseRequest extends AbstractHashRequest
     /**
      * Thiết lập mã đơn hàng bổ sung.
      *
-     * @param  string  $id
+     * @param  null|string  $id
      * @return $this
      */
-    public function setPartnerTransId(string $id)
+    public function setPartnerTransId(?string $id)
     {
         return $this->setParameter('partnerTransId', $id);
     }
@@ -168,10 +168,10 @@ class PurchaseRequest extends AbstractHashRequest
     /**
      * Thiết lập tên công ty, tổ chức của bạn.
      *
-     * @param  string  $name
+     * @param  null|string  $name
      * @return $this
      */
-    public function setPartnerName(string $name)
+    public function setPartnerName(?string $name)
     {
         return $this->setParameter('partnerName', $name);
     }
@@ -189,10 +189,10 @@ class PurchaseRequest extends AbstractHashRequest
     /**
      * Thiết lập số điện thoại khách hàng.
      *
-     * @param  string  $number
+     * @param  null|string  $number
      * @return $this
      */
-    public function setCustomerNumber(string $number)
+    public function setCustomerNumber(?string $number)
     {
         return $this->setParameter('customerNumber', $number);
     }

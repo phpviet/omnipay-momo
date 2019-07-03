@@ -19,7 +19,7 @@ class NotificationRequest extends AbstractIncomingRequest
      * {@inheritdoc}
      * @throws \Omnipay\Common\Exception\InvalidResponseException
      */
-    public function sendData($data)
+    public function sendData($data): NotificationResponse
     {
         return $this->response = new NotificationResponse($this, $data);
     }

@@ -60,10 +60,10 @@ class RefundRequest extends AbstractSignatureRequest
     /**
      * Thiết lập mã giao dịch của MoMo.
      *
-     * @param  string  $id
+     * @param  null|string  $id
      * @return $this
      */
-    public function setTransId(string $id)
+    public function setTransId(?string $id)
     {
         return $this->setParameter('transId', $id);
     }
