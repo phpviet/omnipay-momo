@@ -64,7 +64,7 @@ class POSGateway extends AbstractGateway
      * {@inheritdoc}
      * @return \Omnipay\Common\Message\RequestInterface|PayRefundRequest
      */
-    public function refund(array $options = [])
+    public function refund(array $options = []): PayRefundRequest
     {
         return $this->createRequest(PayRefundRequest::class, $options);
     }
