@@ -20,9 +20,7 @@ abstract class AbstractResponse extends BaseAbstractResponse
     use Concerns\ResponseProperties;
 
     /**
-     * Trả về trạng thái do MoMo phản hồi.
-     *
-     * @return bool
+     * {@inheritdoc}
      */
     public function isSuccessful(): bool
     {
@@ -30,9 +28,15 @@ abstract class AbstractResponse extends BaseAbstractResponse
     }
 
     /**
-     * Trả về thông báo từ MoMo.
-     *
-     * @return null|string
+     * {@inheritdoc}
+     */
+    public function isCancelled(): bool
+    {
+        return '49' === $this->getCode();
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function getMessage(): ?string
     {

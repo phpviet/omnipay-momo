@@ -6,3 +6,7 @@ Tất cả lịch sử tiến trình phát triển thư viện
 
 - Thực thi trả về `self` đối với các phương thức thiết lập parameters ở gateways và requests.
 - Khởi tạo các giá trị mặc định tại phương thức `initialize` của requests thay vì `getData`.
+
+## 1.0.2
+
+- Implement phương thức `isCancelled` ở lớp `\Omnipay\MoMo\Message\AbstractResponse`.
