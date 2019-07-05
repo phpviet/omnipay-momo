@@ -10,9 +10,11 @@ QRCode Gateway
 use Omnipay\Omnipay;
 
 $gateway = Omnipay::create('MoMo_QRCode');
-$gateway->setAccessKey('Do MoMo cấp.');
-$gateway->setPartnerCode('Do MoMo cấp.');
-$gateway->setSecretKey('Do MoMo cấp.');
+$gateway->initialize([
+    'accessKey' => 'Do MoMo cấp',
+    'partnerCode' => 'Do MoMo cấp',
+    'secretKey' => 'Do MoMo cấp',
+]);
 ```
 
 ### Kiểm tra thông tin `notifyUrl` do MoMo gửi sang:

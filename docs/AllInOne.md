@@ -10,9 +10,11 @@ All In One Gateway
 use Omnipay\Omnipay;
 
 $gateway = Omnipay::create('MoMo_AllInOne');
-$gateway->setAccessKey('Do MoMo cấp.');
-$gateway->setPartnerCode('Do MoMo cấp.');
-$gateway->setSecretKey('Do MoMo cấp.');
+$gateway->initialize([
+    'accessKey' => 'Do MoMo cấp',
+    'partnerCode' => 'Do MoMo cấp',
+    'secretKey' => 'Do MoMo cấp',
+]);
 ```
 
 Gateway khởi tạo ở trên dùng để tạo các yêu cầu xử lý đến MoMo hoặc dùng để nhận yêu cầu do MoMo gửi đến.

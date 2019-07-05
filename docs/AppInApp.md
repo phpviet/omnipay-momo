@@ -10,10 +10,12 @@ App In App Gateway
 use Omnipay\Omnipay;
 
 $gateway = Omnipay::create('MoMo_AppInApp');
-$gateway->setPublicKey('Do MoMo cấp.');
-$gateway->setAccessKey('Do MoMo cấp.');
-$gateway->setPartnerCode('Do MoMo cấp.');
-$gateway->setSecretKey('Do MoMo cấp.');
+$gateway->initialize([
+    'accessKey' => 'Do MoMo cấp',
+    'partnerCode' => 'Do MoMo cấp',
+    'secretKey' => 'Do MoMo cấp',
+    'publicKey' => 'Do MoMo cấp',
+]);
 ```
 
 ### Tạo yêu cầu thanh toán:
