@@ -24,7 +24,13 @@ trait ResponseSignatureValidation
      */
     protected function validateSignature(): void
     {
-        $data = [];
+        $data = $this->getData();
+
+        if (! isset($data['signature'])) {
+            throw new InvalidResponseException(sprintf('Response from MoMo is invalid!'));
+        }
+
+        $dataSignature = [];
         $signature = new Signature(
             $this->getRequest()->getSecretKey()
         );
@@ -34,10 +40,10 @@ trait ResponseSignatureValidation
                 $pos = $parameter;
             }
 
-            $data[$pos] = Arr::getValue($parameter, $this->data);
+            $dataSignature[$pos] = Arr::getValue($parameter, $data);
         }
 
-        if (! $signature->validate($data, $this->data['signature'])) {
+        if (! $signature->validate($dataSignature, $data['signature'])) {
             throw new InvalidResponseException(sprintf('Data signature response from MoMo is invalid!'));
         }
     }

@@ -10,3 +10,4 @@ Tất cả lịch sử tiến trình phát triển thư viện
 ## 1.0.2
 
 - Implement phương thức `isCancelled` ở lớp `\Omnipay\MoMo\Message\AbstractResponse`.
+- Throw exception ở concern `\Omnipay\MoMo\Message\Conerns\ResponseSignatureValidation` khi response không tồn tại chữ ký.
