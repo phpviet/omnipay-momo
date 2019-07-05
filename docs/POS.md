@@ -1,9 +1,6 @@
 POS Gateway
 ------------
 
-Để nắm sơ lược về khái niệm và cách sử dụng các **Omnipay** gateways bạn hãy truy cập vào [đây](https://omnipay.thephpleague.com/) 
-để kham khảo.
-
 ### Khởi tạo gateway:
 
 ```php
