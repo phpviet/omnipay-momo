@@ -22,9 +22,6 @@ class NotificationRequest extends AbstractIncomingRequest
      */
     protected function getIncomingParametersBag(): ParameterBag
     {
-        $json = $this->httpRequest->getContent();
-        $data = json_decode($json, true);
-
-        return new ParameterBag($data ?? []);
+        return $this->httpRequest->request;
     }
 }
