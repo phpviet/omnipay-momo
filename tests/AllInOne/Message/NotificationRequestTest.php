@@ -29,7 +29,7 @@ class NotificationRequestTest extends TestCase
             'partnerCode', 'accessKey', 'requestId', 'amount', 'orderId', 'orderInfo', 'orderType', 'transId',
             'message', 'localMessage', 'responseTime', 'errorCode', 'extraData', 'signature', 'payType',
         ];
-        $request->initialize([], [], [], [], [], [], json_encode(array_combine($params, range(1, 15))));
+        $request->initialize([], array_combine($params, range(1, 15)));
         $this->request = new NotificationRequest($client, $request);
     }
 
